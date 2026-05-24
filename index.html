@@ -1,0 +1,2681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travxo — Your Future Beyond Borders | European Education & Visa Services</title>
+<meta property="og:title" content="Travxo — Your Future Beyond Borders | European Education & Visa Services">
+<meta name="description" content="Travxo — Your Future Beyond Borders. Pakistan's premier consultancy for affordable European education, student admissions, and global visa services.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Outfit:wght@300;400;500;600;700&family=Cormorant:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════
+   DESIGN TOKENS
+══════════════════════════════════════════ */
+:root {
+  --navy:       #0D2137;
+  --navy-2:     #132E4A;
+  --navy-3:     #1A3D61;
+  --blue:       #0D7E8A;
+  --blue-light: #0EC6D5;
+  --gold:       #D4A017;
+  --gold-2:     #F0BC34;
+  --gold-pale:  #FEF5D9;
+  --teal:       #0EC6D5;
+  --teal-dark:  #0A8FA0;
+  --white:      #FFFFFF;
+  --cream:      #F5F9FA;
+  --ink:        #0D1F2D;
+  --muted:      #5A7080;
+  --border:     #D8E6EA;
+
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --ease: cubic-bezier(.4,0,.2,1);
+  --ease-out: cubic-bezier(0,.55,.45,1);
+
+  --shadow-sm: 0 2px 8px rgba(13,33,55,.08);
+  --shadow-md: 0 8px 32px rgba(13,33,55,.14);
+  --shadow-lg: 0 20px 60px rgba(13,33,55,.22);
+  --shadow-gold: 0 8px 32px rgba(212,160,23,.35);
+  --shadow-teal: 0 8px 32px rgba(11,158,170,.3);
+}
+
+/* ══════════════════════════════════════════
+   RESET & BASE
+══════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Outfit',sans-serif;color:var(--ink);background:var(--white);overflow-x:hidden;line-height:1.6}
+
+/* scrollbar */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/* pages */
+.page{display:none;animation:pageFade .45s var(--ease) both}
+.page.active{display:block}
+@keyframes pageFade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* ══════════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════════ */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  height:68px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;
+  background:rgba(6,23,46,.0);
+  backdrop-filter:blur(0px);
+  transition:all .4s var(--ease);
+}
+#nav.solid{
+  background:rgba(6,23,46,.97);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(200,153,42,.18);
+  box-shadow:var(--shadow-lg);
+}
+.nav-logo{display:flex;align-items:center;gap:0px;text-decoration:none;cursor:pointer}
+.nav-logo-mark{
+  display:flex;align-items:center;flex-shrink:0;
+}
+.nav-logo-svg{ height:42px; width:auto; }
+.nav-logo-text strong{display:none}
+.nav-logo-text em{display:none}
+
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{
+  color:rgba(255,255,255,.8);text-decoration:none;font-size:.88rem;
+  font-weight:400;letter-spacing:.2px;position:relative;
+  transition:color .25s;cursor:pointer;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
+  transition:transform .3s var(--ease);
+}
+.nav-links a:hover{color:var(--gold-2)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-links a.active{color:var(--gold-2)}
+.nav-links a.active::after{transform:scaleX(1)}
+
+.nav-cta{
+  background:linear-gradient(135deg,var(--gold),#b07e1c);
+  color:var(--navy)!important;padding:10px 22px;border-radius:8px;
+  font-weight:600!important;font-size:.84rem!important;letter-spacing:.4px;
+  box-shadow:var(--shadow-gold);transition:all .3s!important;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(200,153,42,.5)!important}
+.nav-cta::after{display:none!important}
+
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-burger span{display:block;width:26px;height:2px;background:var(--white);border-radius:2px;transition:.3s}
+
+/* ══════════════════════════════════════════
+   MOBILE MENU
+══════════════════════════════════════════ */
+#mobileMenu{
+  position:fixed;inset:0;z-index:1000;
+  background:var(--navy);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+#mobileMenu.open{opacity:1;pointer-events:all}
+#mobileMenu a{
+  color:var(--white);text-decoration:none;font-family:'Playfair Display',serif;
+  font-size:2rem;font-weight:700;cursor:pointer;transition:color .25s;
+}
+#mobileMenu a:hover{color:var(--gold)}
+.menu-close{position:absolute;top:24px;right:5vw;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+
+/* ══════════════════════════════════════════
+   UTILITY CLASSES
+══════════════════════════════════════════ */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 28px;border-radius:8px;font-family:'Outfit',sans-serif;
+  font-size:.92rem;font-weight:600;text-decoration:none;cursor:pointer;
+  border:none;transition:all .35s var(--ease);letter-spacing:.3px;
+}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#b08500);color:var(--navy);box-shadow:var(--shadow-gold)}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(200,153,42,.5)}
+.btn-white{background:rgba(255,255,255,.15);color:var(--white);border:1.5px solid rgba(255,255,255,.4);backdrop-filter:blur(8px)}
+.btn-white:hover{background:rgba(255,255,255,.25);border-color:rgba(255,255,255,.7)}
+.btn-navy{background:var(--navy);color:var(--white)}
+.btn-navy:hover{background:var(--navy-3);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.btn-outline-navy{background:transparent;border:1.5px solid var(--navy);color:var(--navy)}
+.btn-outline-navy:hover{background:var(--navy);color:var(--white)}
+
+.section{padding:88px 5vw}
+.container{max-width:1240px;margin:0 auto}
+.label{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.7rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px;
+}
+.label::before{content:'';display:block;width:24px;height:1.5px;background:var(--gold)}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.5vw,2.9rem);color:var(--navy);line-height:1.15;margin-bottom:14px}
+.section-sub{color:var(--muted);font-size:1.02rem;font-weight:300;line-height:1.75;max-width:580px;margin-bottom:50px}
+
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+/* ══════════════════════════════════════════
+   ██ SPLIT HERO ██
+══════════════════════════════════════════ */
+.split-hero{
+  height:100vh;min-height:600px;display:grid;
+  grid-template-columns:1fr 1fr;position:relative;overflow:hidden;
+}
+
+/* each panel */
+.hero-panel{
+  position:relative;overflow:hidden;cursor:pointer;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 0 72px;
+  transition:flex .7s var(--ease-out);
+}
+.hero-panel:hover{flex:1.08}
+
+/* bg images */
+.hero-panel-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .7s var(--ease);
+}
+.hero-panel:hover .hero-panel-bg{transform:scale(1.05)}
+
+/* overlays */
+.hero-panel-left .hero-panel-bg{
+  background-image:url('https://images.unsplash.com/photo-1562774053-701939374585?w=1400&q=90');
+}
+.hero-panel-right .hero-panel-bg{
+  background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1400&q=90');
+}
+.hero-panel-left::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(165deg,rgba(6,23,46,.88) 0%,rgba(14,50,100,.7) 60%,rgba(200,153,42,.12) 100%);
+  transition:opacity .4s;
+}
+.hero-panel-right::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(165deg,rgba(6,23,46,.82) 0%,rgba(15,35,70,.65) 60%,rgba(30,95,168,.15) 100%);
+  transition:opacity .4s;
+}
+
+/* divider line */
+.split-hero::after{
+  content:'';position:absolute;left:50%;top:0;bottom:0;
+  width:1px;background:linear-gradient(to bottom,transparent,rgba(200,153,42,.6) 30%,rgba(200,153,42,.6) 70%,transparent);
+  z-index:10;pointer-events:none;
+  transform:translateX(-50%);
+}
+
+/* center badge */
+.split-badge{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  z-index:10;width:68px;height:68px;border-radius:50%;
+  background:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 4px rgba(255,255,255,0.15),0 8px 32px rgba(13,33,55,0.4);
+  cursor:default;
+}
+@keyframes badge-pulse{0%,100%{box-shadow:0 0 0 6px rgba(200,153,42,.25),0 0 0 12px rgba(200,153,42,.1),var(--shadow-lg)}50%{box-shadow:0 0 0 10px rgba(200,153,42,.2),0 0 0 20px rgba(200,153,42,.08),var(--shadow-lg)}}
+
+/* nav in hero */
+#nav.hero-nav{background:transparent!important;border:none!important;box-shadow:none!important}
+
+/* panel content */
+.panel-body{
+  position:relative;z-index:2;padding:0 52px;
+  transform:translateY(16px);opacity:.92;
+  transition:transform .5s var(--ease),opacity .5s;
+}
+.hero-panel:hover .panel-body{transform:translateY(0);opacity:1}
+
+.panel-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(200,153,42,.18);border:1px solid rgba(200,153,42,.4);
+  color:var(--gold-2);padding:6px 16px;border-radius:30px;
+  font-size:.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.panel-tag .dot{width:5px;height:5px;border-radius:50%;background:var(--gold-2);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+.panel-body h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,3.5vw,3.2rem);
+  color:var(--white);font-weight:800;line-height:1.1;
+  margin-bottom:16px;
+  text-shadow:0 2px 20px rgba(0,0,0,.3);
+}
+.panel-body p{
+  color:rgba(255,255,255,.75);font-size:1rem;font-weight:300;
+  line-height:1.7;margin-bottom:32px;max-width:460px;
+}
+.panel-btns{display:flex;flex-wrap:wrap;gap:12px}
+
+/* panel decorative line */
+.panel-line{
+  position:absolute;bottom:0;left:52px;
+  width:60px;height:3px;border-radius:2px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-2));
+  bottom:60px;z-index:2;
+}
+
+/* ══════════════════════════════════════════
+   BANNER
+══════════════════════════════════════════ */
+.banner{
+  background:linear-gradient(90deg,var(--navy-2) 0%,var(--navy-3) 50%,var(--navy-2) 100%);
+  border-bottom:2px solid rgba(200,153,42,.3);
+  padding:14px 5vw;text-align:center;
+}
+.banner p{color:var(--white);font-size:.88rem}
+.banner strong{color:var(--gold-2)}
+
+/* ══════════════════════════════════════════
+   TRUST BAR
+══════════════════════════════════════════ */
+.trust-bar{
+  background:var(--white);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:22px 5vw;
+}
+.trust-bar-inner{
+  max-width:1240px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:20px;
+}
+.trust-item{display:flex;align-items:center;gap:10px;color:var(--ink)}
+.trust-item .ti-icon{font-size:1.2rem}
+.trust-item span{font-size:.85rem;font-weight:500}
+.trust-item .num{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--navy)}
+
+/* ══════════════════════════════════════════
+   SERVICES SPLIT
+══════════════════════════════════════════ */
+.services-split{
+  display:grid;grid-template-columns:1fr 1px 1fr;gap:0;
+  background:var(--cream);
+}
+.svc-divider{background:var(--border);margin:60px 0}
+.svc-panel{padding:72px 56px}
+.svc-icon-big{
+  width:64px;height:64px;border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;margin-bottom:28px;
+  box-shadow:var(--shadow-md);
+}
+.svc-icon-study{background:linear-gradient(135deg,var(--navy),var(--teal-dark))}
+.svc-icon-visa{background:linear-gradient(135deg,var(--blue),var(--blue-light))}
+.svc-panel h3{font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--navy);margin-bottom:12px}
+.svc-panel > p{color:var(--muted);font-weight:300;line-height:1.75;margin-bottom:28px}
+.svc-list{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:32px}
+.svc-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:.93rem;color:var(--ink);
+}
+.svc-list li::before{
+  content:'';display:block;flex-shrink:0;
+  width:20px;height:20px;border-radius:50%;margin-top:2px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23000' d='M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4L8 12.6l7.3-7.3a1 1 0 0 1 1.4 0z'/%3E%3C/svg%3E") center/14px no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23000' d='M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4L8 12.6l7.3-7.3a1 1 0 0 1 1.4 0z'/%3E%3C/svg%3E") center/14px no-repeat;
+}
+
+/* ══════════════════════════════════════════
+   DESTINATIONS
+══════════════════════════════════════════ */
+.dest-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:18px}
+.dest-card{
+  border-radius:var(--r-md);overflow:hidden;position:relative;
+  height:200px;cursor:pointer;
+  box-shadow:var(--shadow-sm);
+  transition:transform .35s var(--ease),box-shadow .35s;
+}
+.dest-card:hover{transform:translateY(-7px) scale(1.02);box-shadow:var(--shadow-lg)}
+.dest-card:hover .dest-img{transform:scale(1.1)}
+.dest-img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.dest-card::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to top,rgba(6,23,46,.92) 0%,rgba(6,23,46,.1) 55%,transparent 100%);
+}
+.dest-body{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:16px}
+.dest-flag{font-size:1.6rem;margin-bottom:4px}
+.dest-card h5{color:var(--white);font-size:1rem;font-weight:600;margin-bottom:2px}
+.dest-tag{font-size:.7rem;color:var(--gold-2);font-weight:500;letter-spacing:.5px}
+.dest-type-label{
+  position:absolute;top:12px;right:12px;z-index:3;
+  background:var(--gold);color:var(--navy);
+  font-size:.62rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  padding:3px 10px;border-radius:20px;
+}
+
+/* ══════════════════════════════════════════
+   WHY CHOOSE
+══════════════════════════════════════════ */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.why-card{
+  background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);
+  padding:32px 28px;transition:all .35s var(--ease);position:relative;overflow:hidden;
+}
+.why-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-2));
+  transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease);
+}
+.why-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:transparent}
+.why-card:hover::after{transform:scaleX(1)}
+.why-icon{
+  width:52px;height:52px;border-radius:14px;
+  background:linear-gradient(135deg,var(--gold-pale),#f0dba0);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;margin-bottom:20px;
+}
+.why-card h4{color:var(--navy);font-size:1.05rem;font-weight:600;margin-bottom:8px}
+.why-card p{color:var(--muted);font-size:.88rem;font-weight:300;line-height:1.7}
+
+/* ══════════════════════════════════════════
+   PROCESS
+══════════════════════════════════════════ */
+.process-section{background:var(--navy);position:relative;overflow:hidden}
+.process-section::before{
+  content:'';position:absolute;top:-300px;right:-200px;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,153,42,.07) 0%,transparent 70%);
+}
+.process-section .section-title{color:var(--white)}
+.process-section .section-sub{color:rgba(255,255,255,.55)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.process-steps::before{
+  content:'';position:absolute;top:36px;left:calc(12.5%);right:calc(12.5%);height:1px;
+  background:linear-gradient(90deg,transparent,rgba(200,153,42,.4) 20%,rgba(200,153,42,.4) 80%,transparent);
+  z-index:0;
+}
+.step{text-align:center;padding:0 24px;position:relative;z-index:1}
+.step-num{
+  width:72px;height:72px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:800;color:var(--navy);
+  margin:0 auto 20px;box-shadow:var(--shadow-gold);
+}
+.step h4{color:var(--white);font-size:1rem;font-weight:600;margin-bottom:8px}
+.step p{color:rgba(255,255,255,.5);font-size:.84rem;font-weight:300;line-height:1.6}
+
+/* ══════════════════════════════════════════
+   TESTIMONIALS
+══════════════════════════════════════════ */
+.testi-bg{background:var(--cream)}
+.testi-track-wrap{overflow:hidden;position:relative}
+.testi-track{display:flex;gap:24px;transition:transform .5s var(--ease)}
+.testi-card{
+  min-width:360px;flex-shrink:0;
+  background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);
+  padding:32px;box-shadow:var(--shadow-sm);
+}
+.testi-stars{color:var(--gold);font-size:1rem;margin-bottom:16px;letter-spacing:2px}
+.testi-card q{
+  font-family:'Cormorant',serif;font-style:italic;
+  font-size:1.1rem;color:var(--navy);line-height:1.7;display:block;margin-bottom:24px;
+  quotes:'\201C''\201D';
+}
+.testi-card q::before{content:open-quote}
+.testi-card q::after{content:close-quote}
+.testi-person{display:flex;align-items:center;gap:14px}
+.testi-av{
+  width:48px;height:48px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:1.1rem;color:var(--navy);
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+}
+.testi-name{font-weight:600;font-size:.92rem;color:var(--navy)}
+.testi-where{font-size:.78rem;color:var(--muted)}
+.testi-verified{margin-left:auto;background:rgba(46,125,82,.12);color:#2e7d52;font-size:.65rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 10px;border-radius:20px}
+.testi-ctrl{display:flex;align-items:center;gap:14px;margin-top:32px}
+.tslider-btn{
+  width:42px;height:42px;border-radius:50%;border:1.5px solid var(--border);
+  background:var(--white);cursor:pointer;font-size:1.1rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s;
+}
+.tslider-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.testi-dots{display:flex;gap:8px}
+.testi-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:all .3s}
+.testi-dot.on{background:var(--gold);width:24px;border-radius:4px}
+
+/* ══════════════════════════════════════════
+   CTA BAND
+══════════════════════════════════════════ */
+.cta-band{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-3) 60%,var(--navy) 100%);
+  padding:80px 5vw;text-align:center;position:relative;overflow:hidden;
+}
+.cta-band::before{
+  content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:900px;height:900px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,153,42,.07) 0%,transparent 60%);
+}
+.cta-band h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);color:var(--white);margin-bottom:14px;position:relative;z-index:1}
+.cta-band p{color:rgba(255,255,255,.65);font-size:1.05rem;font-weight:300;margin-bottom:36px;position:relative;z-index:1}
+.cta-band-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;position:relative;z-index:1}
+.btn-wa{background:#25D366;color:var(--white);box-shadow:0 8px 28px rgba(37,211,102,.4)}
+.btn-wa:hover{background:#1fba59;transform:translateY(-2px)}
+
+/* ══════════════════════════════════════════
+   LEAD FORM
+══════════════════════════════════════════ */
+.lead-section{background:var(--cream)}
+.lead-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.lead-left h2{font-family:'Playfair Display',serif;font-size:2.4rem;color:var(--navy);margin-bottom:16px}
+.lead-left p{color:var(--muted);font-weight:300;line-height:1.75;margin-bottom:30px}
+.contact-info{display:flex;flex-direction:column;gap:16px}
+.ci{display:flex;align-items:flex-start;gap:14px}
+.ci-icon{width:42px;height:42px;border-radius:10px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.ci-text strong{display:block;color:var(--navy);font-size:.9rem;margin-bottom:2px}
+.ci-text span{color:var(--muted);font-size:.84rem;font-weight:300}
+
+.form-card{
+  background:var(--white);border-radius:var(--r-lg);padding:40px;
+  box-shadow:var(--shadow-lg);border:1px solid var(--border);
+}
+.form-card h3{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--navy);margin-bottom:6px}
+.form-card .form-sub{color:var(--muted);font-size:.85rem;margin-bottom:28px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.fg label{font-size:.8rem;font-weight:600;color:var(--ink);letter-spacing:.3px}
+.fg input,.fg select,.fg textarea{
+  padding:12px 15px;border:1.5px solid var(--border);border-radius:8px;
+  font-family:'Outfit',sans-serif;font-size:.9rem;color:var(--ink);
+  background:var(--cream);outline:none;transition:border-color .25s;
+}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);background:var(--white)}
+.fg textarea{min-height:90px;resize:vertical}
+.form-submit{
+  width:100%;padding:15px;border-radius:8px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--navy),var(--teal-dark));
+  color:var(--white);font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:600;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:all .3s;
+}
+.form-submit:hover{background:linear-gradient(135deg,var(--gold),#b07e1c);color:var(--navy);transform:translateY(-2px);box-shadow:var(--shadow-gold)}
+.form-note{text-align:center;font-size:.74rem;color:var(--muted);margin-top:12px}
+
+/* ══════════════════════════════════════════
+   BLOG
+══════════════════════════════════════════ */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.blog-card{
+  border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);
+  transition:all .35s var(--ease);cursor:pointer;
+}
+.blog-card:hover{transform:translateY(-7px);box-shadow:var(--shadow-md);border-color:var(--gold)}
+.blog-img{height:200px;overflow:hidden;position:relative}
+.blog-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.blog-card:hover .blog-img img{transform:scale(1.07)}
+.blog-cat{position:absolute;top:14px;left:14px;background:var(--gold);color:var(--navy);font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:20px}
+.blog-body{padding:24px}
+.blog-meta{font-size:.74rem;color:var(--muted);margin-bottom:10px;display:flex;gap:10px}
+.blog-card h4{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:10px;line-height:1.35}
+.blog-card p{color:var(--muted);font-size:.86rem;font-weight:300;line-height:1.65}
+.blog-more{display:inline-flex;align-items:center;gap:6px;color:var(--gold);font-size:.84rem;font-weight:600;margin-top:14px;text-decoration:none}
+
+/* ══════════════════════════════════════════
+   FAQ
+══════════════════════════════════════════ */
+.faq-list{display:flex;flex-direction:column;gap:12px;max-width:800px;margin:0 auto}
+.faq-item{background:var(--white);border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;transition:border-color .3s}
+.faq-item.on{border-color:var(--gold)}
+.faq-q{
+  width:100%;padding:20px 24px;background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:600;color:var(--navy);text-align:left;
+}
+.faq-q-icon{font-size:1.3rem;color:var(--gold);flex-shrink:0;transition:transform .3s}
+.faq-item.on .faq-q-icon{transform:rotate(45deg)}
+.faq-body{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-body-inner{padding:0 24px 20px;color:var(--muted);font-size:.9rem;font-weight:300;line-height:1.7}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+footer{background:var(--navy);border-top:1px solid rgba(200,153,42,.15)}
+.footer-top{
+  max-width:1240px;margin:0 auto;padding:64px 5vw 48px;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;
+}
+.f-brand p{color:rgba(255,255,255,.45);font-size:.86rem;font-weight:300;line-height:1.7;max-width:270px;margin:16px 0 22px}
+.f-socials{display:flex;gap:10px}
+.f-social{
+  width:38px;height:38px;border-radius:8px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.6);font-size:.9rem;text-decoration:none;
+  transition:all .3s;cursor:pointer;
+}
+.f-social:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.f-col h6{color:var(--white);font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.f-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.f-links a{
+  color:rgba(255,255,255,.45);text-decoration:none;font-size:.86rem;font-weight:300;
+  transition:color .25s;cursor:pointer;
+}
+.f-links a:hover{color:var(--gold-2)}
+.footer-bot{
+  border-top:1px solid rgba(255,255,255,.07);padding:20px 5vw;
+  max-width:1240px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+}
+.footer-bot p{color:rgba(255,255,255,.3);font-size:.78rem}
+.f-legal{display:flex;gap:20px}
+.f-legal a{color:rgba(255,255,255,.3);text-decoration:none;font-size:.78rem;transition:color .25s;cursor:pointer}
+.f-legal a:hover{color:var(--gold)}
+
+/* ══════════════════════════════════════════
+   WHATSAPP FLOAT
+══════════════════════════════════════════ */
+.wa-fab{
+  position:fixed;bottom:28px;right:28px;z-index:800;
+  width:58px;height:58px;border-radius:50%;background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 28px rgba(37,211,102,.5);
+  text-decoration:none;animation:wa-pulse 3s ease-in-out infinite;
+  transition:transform .3s;
+}
+.wa-fab:hover{transform:scale(1.1);animation:none}
+.wa-fab svg{width:30px;height:30px;fill:white}
+.wa-tip{
+  position:absolute;right:68px;top:50%;transform:translateY(-50%);
+  background:var(--navy);color:var(--white);padding:7px 13px;border-radius:7px;
+  font-size:.78rem;font-weight:500;white-space:nowrap;
+  box-shadow:var(--shadow-md);opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.wa-tip::after{
+  content:'';position:absolute;left:100%;top:50%;transform:translateY(-50%);
+  border:5px solid transparent;border-left-color:var(--navy);
+}
+.wa-fab:hover .wa-tip{opacity:1}
+@keyframes wa-pulse{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* ══════════════════════════════════════════
+   INNER PAGE: STUDY / VISA / ABOUT / CONTACT / BLOG
+══════════════════════════════════════════ */
+.inner-hero{
+  padding-top:130px;padding-bottom:80px;
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-3) 100%);
+  position:relative;overflow:hidden;
+}
+.inner-hero::after{
+  content:'';position:absolute;right:-100px;top:-100px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,153,42,.1) 0%,transparent 65%);
+}
+.inner-hero .label{color:var(--gold-2)}
+.inner-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.5rem);color:var(--white);margin-bottom:16px}
+.inner-hero p{color:rgba(255,255,255,.65);font-size:1.05rem;font-weight:300;max-width:600px;line-height:1.7;margin-bottom:32px}
+
+/* country detail cards */
+.country-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.c-card{
+  background:var(--white);border-radius:var(--r-lg);overflow:hidden;
+  border:1px solid var(--border);transition:all .35s var(--ease);
+}
+.c-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--gold)}
+.c-card-img{height:160px;position:relative}
+.c-card-img img{width:100%;height:100%;object-fit:cover}
+.c-card-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(6,23,46,.6) 0%,transparent 50%);
+}
+.c-card-flag{position:absolute;bottom:12px;left:16px;z-index:2;font-size:1.8rem}
+.c-card-body{padding:20px}
+.c-card-body h4{color:var(--navy);font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:6px}
+.c-card-body p{color:var(--muted);font-size:.84rem;font-weight:300;line-height:1.65;margin-bottom:16px}
+.c-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.c-pill{background:var(--gold-pale);color:var(--navy);font-size:.7rem;font-weight:600;padding:4px 12px;border-radius:20px}
+.c-card-link{color:var(--gold);font-size:.84rem;font-weight:600;text-decoration:none}
+
+/* visa service cards */
+.visa-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.v-card{
+  background:var(--white);border:1px solid var(--border);border-radius:var(--r-md);
+  padding:26px;transition:all .35s var(--ease);position:relative;overflow:hidden;
+}
+.v-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--blue),var(--blue-light));
+  transform:scaleX(0);transform-origin:left;transition:transform .35s;
+}
+.v-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.v-card:hover::before{transform:scaleX(1)}
+.v-card-icon{font-size:2rem;margin-bottom:16px}
+.v-card h4{color:var(--navy);font-size:1rem;font-weight:600;margin-bottom:8px}
+.v-card p{color:var(--muted);font-size:.84rem;font-weight:300;line-height:1.65}
+
+/* about page */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-img-wrap{border-radius:var(--r-lg);overflow:hidden;position:relative;height:480px}
+.about-img-wrap img{width:100%;height:100%;object-fit:cover}
+.about-img-wrap::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(6,23,46,.3),transparent);z-index:1;
+}
+.about-badge{
+  position:absolute;bottom:28px;left:28px;z-index:2;
+  background:var(--white);border-radius:var(--r-sm);
+  padding:16px 20px;box-shadow:var(--shadow-md);
+  display:flex;align-items:center;gap:14px;
+}
+.ab-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:var(--gold);line-height:1}
+.ab-text{font-size:.8rem;color:var(--muted);max-width:100px;font-weight:300;line-height:1.4}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.team-card{text-align:center}
+.team-av{
+  width:80px;height:80px;border-radius:50%;margin:0 auto 14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;font-weight:700;
+  background:linear-gradient(135deg,var(--navy),var(--teal-dark));
+  color:var(--gold);box-shadow:var(--shadow-md);
+}
+.team-card h5{color:var(--navy);font-size:.95rem;font-weight:600;margin-bottom:4px}
+.team-card p{color:var(--muted);font-size:.8rem;font-weight:300}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:900px){
+  .split-hero{grid-template-columns:1fr;height:auto;min-height:auto}
+  .hero-panel{min-height:100vh}
+  .split-hero::after{left:0;top:50%;bottom:auto;width:100%;height:1px;transform:none}
+  .split-badge{ display:flex;align-items:center;justify-content:center;display:none}
+  .panel-body{padding:0 32px}
+  .services-split{grid-template-columns:1fr;display:block}
+  .svc-panel{padding:52px 32px}
+  .svc-divider{display:none}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .process-steps{grid-template-columns:1fr 1fr;gap:32px}
+  .process-steps::before{display:none}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .lead-inner{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .blog-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:680px){
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .section{padding:60px 5vw}
+  .why-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .blog-grid{grid-template-columns:1fr}
+  .dest-grid{grid-template-columns:repeat(2,1fr)}
+  .testi-card{min-width:300px}
+  .panel-body{padding:0 24px}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .footer-top{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .split-hero{height:auto}
+  .hero-panel{min-height:100svh}
+  .process-steps{grid-template-columns:1fr}
+  .nav-logo-svg{height:32px}
+}
+
+/* ══════════════════════════════════════════
+   DOCUMENT CHECKLIST STYLES
+══════════════════════════════════════════ */
+.doc-tabs {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  background: var(--white); border-radius: 14px;
+  padding: 6px; width: fit-content;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+.doc-tab {
+  padding: 11px 20px; border-radius: 9px; border: none;
+  font-family: 'Outfit', sans-serif; font-size: 0.86rem; font-weight: 500;
+  cursor: pointer; transition: all 0.28s;
+  color: var(--muted); background: transparent;
+}
+.doc-tab.active { background: var(--navy); color: var(--white); box-shadow: var(--shadow-md); }
+.doc-tab:hover:not(.active) { background: var(--cream); color: var(--navy); }
+
+.doc-panel { display: none; }
+.doc-panel.active { display: block; animation: docFadeUp 0.4s both; }
+@keyframes docFadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+
+.doc-panel-header {
+  display: flex; align-items: flex-start; gap: 18px;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 60%, var(--blue) 100%);
+  border-radius: 16px; padding: 28px 32px; margin-bottom: 28px;
+  position: relative; overflow: hidden;
+}
+.doc-panel-header::before {
+  content:''; position:absolute; width:300px; height:300px; border-radius:50%;
+  background:rgba(255,255,255,0.03); top:-100px; right:-80px;
+}
+.doc-panel-flag { font-size:3rem; flex-shrink:0; line-height:1; }
+.doc-panel-title { font-family:'Playfair Display',serif; font-size:clamp(1.2rem,2.5vw,1.65rem); color:var(--white); margin-bottom:6px; font-weight:700; }
+.doc-panel-sub { color:rgba(255,255,255,0.6); font-size:0.88rem; font-weight:300; line-height:1.6; }
+.doc-download-btn {
+  margin-left:auto; flex-shrink:0;
+  background:linear-gradient(135deg,var(--gold),#b8820a);
+  color:var(--navy); padding:10px 18px; border-radius:8px;
+  font-size:0.82rem; font-weight:700; white-space:nowrap;
+  text-decoration:none; transition:all 0.3s;
+  box-shadow:var(--shadow-gold); display:inline-flex; align-items:center;
+  align-self:flex-start; margin-top:4px;
+}
+.doc-download-btn:hover { transform:translateY(-2px); }
+
+.doc-categories { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+
+.doc-category {
+  background:var(--white); border:1px solid var(--border);
+  border-radius:14px; overflow:hidden; transition:all 0.3s;
+  box-shadow:var(--shadow-sm);
+}
+.doc-category:hover { border-color:var(--gold); box-shadow:0 6px 28px rgba(200,153,42,0.15); }
+
+.doc-cat-header {
+  display:flex; align-items:center; gap:10px;
+  background:var(--cream); border-bottom:1px solid var(--border);
+  padding:14px 18px;
+}
+.doc-cat-icon { font-size:1.25rem; }
+.doc-cat-header h4 { color:var(--navy); font-size:0.95rem; font-weight:600; }
+
+.doc-list { list-style:none; display:flex; flex-direction:column; padding:14px 18px; gap:0; }
+.doc-list li {
+  display:flex; align-items:flex-start; gap:11px;
+  padding:11px 0; border-bottom:1px solid #F3F4F6;
+  font-size:0.875rem; line-height:1.5;
+}
+.doc-list li:last-child { border-bottom:none; padding-bottom:0; }
+.doc-list li:first-child { padding-top:0; }
+.doc-list li strong { color:var(--navy); display:block; margin-bottom:1px; font-weight:600; font-size:0.875rem; }
+.doc-list li div { color:var(--muted); font-weight:300; font-size:0.825rem; line-height:1.55; }
+
+.doc-check {
+  display:flex; align-items:center; justify-content:center;
+  width:20px; height:20px; border-radius:50%; flex-shrink:0;
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  color:var(--navy); font-size:0.65rem; font-weight:900;
+  margin-top:2px; box-shadow:0 2px 8px rgba(200,153,42,0.3);
+}
+
+.doc-note {
+  display:flex; align-items:flex-start; gap:14px;
+  margin-top:20px;
+  background:var(--gold-pale); border:1px solid rgba(200,153,42,0.3);
+  border-radius:12px; padding:18px 20px;
+}
+.doc-note-icon { font-size:1.3rem; flex-shrink:0; margin-top:2px; }
+.doc-note p { color:var(--ink); font-size:0.88rem; line-height:1.65; font-weight:300; }
+.doc-note p strong { color:var(--navy); font-weight:700; }
+
+@media(max-width:900px) {
+  .doc-categories { grid-template-columns:1fr; }
+  .doc-panel-header { flex-wrap:wrap; }
+  .doc-download-btn { margin-left:0; }
+  .doc-tabs { width:100%; }
+  .doc-tab { font-size:0.8rem; padding:9px 14px; }
+}
+@media(max-width:600px) {
+  .doc-panel-header { padding:20px; }
+  .doc-panel-flag { font-size:2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── PROMO BANNER ── -->
+
+
+<!-- ── NAVIGATION ── -->
+<nav id="nav" class="hero-nav">
+  <a class="nav-logo" onclick="goPage('home')">
+    <div class="nav-logo-mark">
+      <svg class="nav-logo-svg" viewBox="0 0 220 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="iconGradN" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#0EC6D5"/>
+            <stop offset="100%" stop-color="#0D2137"/>
+          </linearGradient>
+          <linearGradient id="compassN" x1="23" y1="4" x2="23" y2="42" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#F0BC34"/>
+            <stop offset="100%" stop-color="#D4870A"/>
+          </linearGradient>
+        </defs>
+        <!-- Compass circle background -->
+        <circle cx="23" cy="23" r="21" fill="url(#iconGradN)"/>
+        <!-- Outer ring -->
+        <circle cx="23" cy="23" r="19" stroke="rgba(255,255,255,0.18)" stroke-width="0.8" fill="none"/>
+        <!-- Compass cross lines -->
+        <line x1="23" y1="6" x2="23" y2="40" stroke="rgba(255,255,255,0.2)" stroke-width="0.7"/>
+        <line x1="6" y1="23" x2="40" y2="23" stroke="rgba(255,255,255,0.2)" stroke-width="0.7"/>
+        <!-- Compass needle — North (gold) -->
+        <polygon points="23,8 26,23 23,20 20,23" fill="url(#compassN)"/>
+        <!-- Compass needle — South (white) -->
+        <polygon points="23,38 26,23 23,26 20,23" fill="rgba(255,255,255,0.7)"/>
+        <!-- Centre dot -->
+        <circle cx="23" cy="23" r="2.5" fill="white"/>
+        <!-- Cardinal N -->
+        <text x="23" y="5.5" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="4.5" font-weight="700" fill="#F0BC34" letter-spacing="0">N</text>
+        <!-- TRAVXO wordmark -->
+        <text x="56" y="27" font-family="'Outfit', sans-serif" font-size="20" font-weight="700" fill="white" letter-spacing="1.5">TRAV</text>
+        <text x="107" y="27" font-family="'Outfit', sans-serif" font-size="20" font-weight="700" fill="#0EC6D5" letter-spacing="1.5">XO</text>
+        <!-- Tagline -->
+        <text x="56" y="38" font-family="'Outfit', sans-serif" font-size="6" font-weight="400" fill="rgba(255,255,255,0.55)" letter-spacing="1.8">YOUR FUTURE BEYOND BORDERS</text>
+        <!-- travxo.com subtle -->
+        <text x="183" y="38" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="400" fill="rgba(255,255,255,0.3)" letter-spacing="0.5">travxo.com</text>
+      </svg>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a onclick="goPage('study')" id="nl-study">Study in Europe</a></li>
+    <li><a onclick="goPage('visa')" id="nl-visa">Visa Services</a></li>
+    <li><a onclick="goPage('about')" id="nl-about">About Us</a></li>
+    <li><a onclick="goPage('blog')" id="nl-blog">Blog</a></li>
+    <li><a onclick="goPage('contact')" id="nl-contact">Contact</a></li>
+    <li><a onclick="goPage('contact')" class="nav-cta">Free Consultation</a></li>
+  </ul>
+  <div class="nav-burger" onclick="openMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- ── MOBILE MENU ── -->
+<div id="mobileMenu">
+  <button class="menu-close" onclick="closeMenu()">✕</button>
+  <a onclick="goPage('home');closeMenu()">Home</a>
+  <a onclick="goPage('study');closeMenu()">Study in Europe</a>
+  <a onclick="goPage('visa');closeMenu()">Visa Services</a>
+  <a onclick="goPage('about');closeMenu()">About Us</a>
+  <a onclick="goPage('blog');closeMenu()">Blog</a>
+  <a onclick="goPage('contact');closeMenu()">Contact</a>
+</div>
+
+<!-- ════════════════════════════════════════
+     PAGE: HOME
+════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- SPLIT HERO -->
+  <section class="split-hero">
+
+    <!-- LEFT: STUDY -->
+    <div class="hero-panel hero-panel-left" onclick="goPage('study')">
+      <div class="hero-panel-bg"></div>
+      <div class="panel-body">
+        <div class="panel-tag"><span class="dot"></span> Student Consultancy</div>
+        <h1>Study in Europe<br>Affordably</h1>
+        <p>Admissions, scholarships, and student visa support for Germany, France, Austria, Italy, and more.</p>
+        <div class="panel-btns">
+          <span class="btn btn-gold" onclick="event.stopPropagation();goPage('study')">Explore Study Options</span>
+          <span class="btn btn-white" onclick="event.stopPropagation();goPage('contact')">Book Free Consultation</span>
+        </div>
+      </div>
+      <div class="panel-line"></div>
+    </div>
+
+    <!-- CENTRE BADGE — Travxo Logo -->
+    <div class="split-badge">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+        <defs>
+          <linearGradient id="sbG" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#0EC6D5"/>
+            <stop offset="100%" stop-color="#0D2137"/>
+          </linearGradient>
+          <linearGradient id="sbN" x1="24" y1="4" x2="24" y2="44" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#F0BC34"/>
+            <stop offset="100%" stop-color="#D4870A"/>
+          </linearGradient>
+        </defs>
+        <circle cx="24" cy="24" r="23" fill="url(#sbG)"/>
+        <circle cx="24" cy="24" r="20" stroke="rgba(255,255,255,0.2)" stroke-width="0.8" fill="none"/>
+        <line x1="24" y1="6" x2="24" y2="42" stroke="rgba(255,255,255,0.25)" stroke-width="0.8"/>
+        <line x1="6" y1="24" x2="42" y2="24" stroke="rgba(255,255,255,0.25)" stroke-width="0.8"/>
+        <polygon points="24,7 27.5,24 24,21 20.5,24" fill="url(#sbN)"/>
+        <polygon points="24,41 27.5,24 24,27 20.5,24" fill="rgba(255,255,255,0.65)"/>
+        <circle cx="24" cy="24" r="3" fill="white"/>
+        <text x="24" y="5.5" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="4" font-weight="700" fill="#F0BC34">N</text>
+      </svg>
+    </div>
+
+    <!-- RIGHT: VISA -->
+    <div class="hero-panel hero-panel-right" onclick="goPage('visa')">
+      <div class="hero-panel-bg"></div>
+      <div class="panel-body">
+        <div class="panel-tag"><span class="dot"></span> Visa & Travel</div>
+        <h1>Travel the World<br>with Confidence</h1>
+        <p>Expert visa services for Canada, Australia, Europe, Schengen, and global destinations.</p>
+        <div class="panel-btns">
+          <span class="btn btn-gold" onclick="event.stopPropagation();goPage('visa')">Explore Visa Services</span>
+          <span class="btn btn-white" onclick="event.stopPropagation();goPage('contact')">Apply for Visa</span>
+        </div>
+      </div>
+      <div class="panel-line"></div>
+    </div>
+
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="trust-item"><span class="ti-icon">🏛️</span><span>Registered Consultancy — Pakistan</span></div>
+      <div class="trust-item"><span class="num">500+</span><span>&nbsp;Students Placed</span></div>
+      <div class="trust-item"><span class="num">98%</span><span>&nbsp;Visa Success Rate</span></div>
+      <div class="trust-item"><span class="ti-icon">⭐</span><span>4.9 / 5 — 300+ Reviews</span></div>
+      <div class="trust-item"><span class="ti-icon">📞</span><span>24 / 7 WhatsApp Support</span></div>
+    </div>
+  </div>
+
+  <!-- SERVICES OVERVIEW -->
+  <section id="services" style="background:var(--cream)">
+    <div style="text-align:center;padding:70px 5vw 0">
+      <span class="label" style="justify-content:center">What We Do</span>
+      <h2 class="section-title" style="text-align:center">Trusted by Students &amp; Families<br>Across Pakistan</h2>
+    </div>
+    <div class="services-split">
+      <!-- Study -->
+      <div class="svc-panel reveal">
+        <div class="svc-icon-big svc-icon-study">🎓</div>
+        <h3>Study Abroad in Europe</h3>
+        <p>Affordable pathways to world-class European education. We guide you from university selection to your first day on campus.</p>
+        <ul class="svc-list">
+          <li>University selection — Germany, France, Austria, Italy, Poland, Finland</li>
+          <li>Admission application support & deadline tracking</li>
+          <li>Professional SOP & CV writing</li>
+          <li>Scholarship identification & applications</li>
+          <li>Student visa assistance & embassy preparation</li>
+          <li>Accommodation & pre-departure guidance</li>
+        </ul>
+        <span class="btn btn-navy" onclick="goPage('study')" style="cursor:pointer">Start Your Study Journey →</span>
+      </div>
+      <div class="svc-divider"></div>
+      <!-- Visa -->
+      <div class="svc-panel reveal d2">
+        <div class="svc-icon-big svc-icon-visa">🌍</div>
+        <h3>Visa &amp; Travel Services</h3>
+        <p>Expert documentation and advisory for global visas. From first-time travelers to refusal cases — we have you covered.</p>
+        <ul class="svc-list">
+          <li>Schengen visa assistance (all 27 member countries)</li>
+          <li>Canada visitor &amp; family sponsorship visas</li>
+          <li>Australia visitor visa guidance</li>
+          <li>UK Standard Visitor visa support</li>
+          <li>Tourist &amp; business visas worldwide</li>
+          <li>Visa refusal analysis &amp; re-application strategy</li>
+        </ul>
+        <span class="btn btn-navy" onclick="goPage('visa')" style="cursor:pointer">Get Visa Assistance →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESTINATIONS -->
+  <section class="section">
+    <div class="container">
+      <div class="reveal">
+        <span class="label">Destinations</span>
+        <h2 class="section-title">Explore Top Study &amp; Travel Destinations</h2>
+        <p class="section-sub">From tuition-free German universities to Canada and Australia — we open every door.</p>
+      </div>
+      <div class="dest-grid">
+        <div class="dest-card reveal"><img class="dest-img" src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=500&q=80" alt="Germany"><div class="dest-type-label">Study</div><div class="dest-body"><div class="dest-flag">🇩🇪</div><h5>Germany</h5><div class="dest-tag">400+ Public Universities</div></div></div>
+        <div class="dest-card reveal d1"><img class="dest-img" src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=500&q=80" alt="France"><div class="dest-type-label">Study</div><div class="dest-body"><div class="dest-flag">🇫🇷</div><h5>France</h5><div class="dest-tag">Low Tuition, High Prestige</div></div></div>
+        <div class="dest-card reveal d2"><img class="dest-img" src="https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=500&q=80" alt="Austria"><div class="dest-type-label">Study</div><div class="dest-body"><div class="dest-flag">🇦🇹</div><h5>Austria</h5><div class="dest-tag">Research Excellence</div></div></div>
+        <div class="dest-card reveal d3"><img class="dest-img" src="https://images.unsplash.com/photo-1529260830199-42c24126f198?w=500&q=80" alt="Italy"><div class="dest-type-label">Study</div><div class="dest-body"><div class="dest-flag">🇮🇹</div><h5>Italy</h5><div class="dest-tag">Affordable & Prestigious</div></div></div>
+        <div class="dest-card reveal"><img class="dest-img" src="https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=500&q=80" alt="Poland"><div class="dest-type-label">Study</div><div class="dest-body"><div class="dest-flag">🇵🇱</div><h5>Poland</h5><div class="dest-tag">Low Cost, High Quality</div></div></div>
+        <div class="dest-card reveal d1"><img class="dest-img" src="https://images.unsplash.com/photo-1548426434-5e57e4f1da70?w=500&q=80" alt="Finland"><div class="dest-type-label">Study</div><div class="dest-body"><div class="dest-flag">🇫🇮</div><h5>Finland</h5><div class="dest-tag">Innovation & Scholarships</div></div></div>
+        <div class="dest-card reveal d2"><img class="dest-img" src="https://images.unsplash.com/photo-1517935706615-2717063c2225?w=500&q=80" alt="Canada"><div class="dest-type-label" style="background:var(--blue);color:white">Travel</div><div class="dest-body"><div class="dest-flag">🇨🇦</div><h5>Canada</h5><div class="dest-tag">Visitor & Family Visa</div></div></div>
+        <div class="dest-card reveal d3"><img class="dest-img" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=80" alt="Australia"><div class="dest-type-label" style="background:var(--blue);color:white">Travel</div><div class="dest-body"><div class="dest-flag">🇦🇺</div><h5>Australia</h5><div class="dest-tag">Visitor Visa Support</div></div></div>
+        <div class="dest-card reveal"><img class="dest-img" src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=500&q=80" alt="UK"><div class="dest-type-label" style="background:var(--blue);color:white">Travel</div><div class="dest-body"><div class="dest-flag">🇬🇧</div><h5>United Kingdom</h5><div class="dest-tag">Standard Visitor Visa</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="section" style="background:var(--cream)">
+    <div class="container">
+      <div class="reveal">
+        <span class="label">Our Advantage</span>
+        <h2 class="section-title">Why Choose Travxo</h2>
+        <p class="section-sub">We're not just a form-filling service. We're your strategic partner for every step of the journey.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal"><div class="why-icon">💰</div><h4>Affordable European Pathways</h4><p>We specialize in tuition-free and low-cost universities in Germany and Europe, saving Pakistani families millions.</p></div>
+        <div class="why-card reveal d1"><div class="why-icon">🤝</div><h4>Honest & Transparent Advice</h4><p>We tell you exactly what's possible for your profile — no false promises, no hidden fees.</p></div>
+        <div class="why-card reveal d2"><div class="why-icon">📋</div><h4>Strong Documentation Expertise</h4><p>Our 98% visa success rate comes from airtight documentation and deep embassy knowledge.</p></div>
+        <div class="why-card reveal d3"><div class="why-icon">🎯</div><h4>Personalized Consultation</h4><p>Every client receives a dedicated advisor who understands their unique goals, budget, and timeline.</p></div>
+        <div class="why-card reveal"><div class="why-icon">👨‍👩‍👧</div><h4>Pakistani Families First</h4><p>Urdu-speaking advisors, family-friendly consultations, and genuine understanding of your concerns.</p></div>
+        <div class="why-card reveal d1"><div class="why-icon">🔄</div><h4>End-to-End Support</h4><p>From the first inquiry to landing in Europe or getting your visa stamped — we're with you every step.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section process-section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:56px" class="reveal">
+        <span class="label" style="justify-content:center;color:var(--gold)">How It Works</span>
+        <h2 class="section-title" style="color:var(--white)">Simple 4-Step Process</h2>
+        <p class="section-sub" style="color:rgba(255,255,255,.55);margin:0 auto">From your first message to achieving your goal — we make it straightforward.</p>
+      </div>
+      <div class="process-steps">
+        <div class="step reveal"><div class="step-num">1</div><h4>Free Consultation</h4><p>Book a 30-minute session with our senior advisor — Urdu or English, your choice.</p></div>
+        <div class="step reveal d1"><div class="step-num">2</div><h4>Profile Evaluation</h4><p>We assess your academic background, finances, and goals to map the best pathway.</p></div>
+        <div class="step reveal d2"><div class="step-num">3</div><h4>Application & Documentation</h4><p>Our team handles the complete paperwork — applications, SOP, CV, visa documents.</p></div>
+        <div class="step reveal d3"><div class="step-num">4</div><h4>Visa Submission & Approval</h4><p>We submit, track your case, and celebrate your approval together.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testi-bg">
+    <div class="container">
+      <div class="reveal">
+        <span class="label">Success Stories</span>
+        <h2 class="section-title">Real Results for Real People</h2>
+        <p class="section-sub">Hundreds of Pakistani students and families have trusted Travxo. Here's what they say.</p>
+      </div>
+      <div class="testi-track-wrap reveal">
+        <div class="testi-track" id="ttrack">
+          <div class="testi-card"><div class="testi-stars">★★★★★</div><q>Travxo guided me through every step for my Masters in Germany. They handled my APS certificate, blocked account, and visa — I got approval in 7 weeks. Absolutely life-changing.</q><div class="testi-person"><div class="testi-av">AR</div><div><div class="testi-name">Ahmed Raza</div><div class="testi-where">🇩🇪 Now at TU Munich, Germany</div></div><span class="testi-verified">Verified</span></div></div>
+          <div class="testi-card"><div class="testi-stars">★★★★★</div><q>I had two Schengen refusals before coming to Travxo. They analyzed everything, rebuilt my file, and I got my visa within 3 weeks. Professional, honest, incredible.</q><div class="testi-person"><div class="testi-av">SK</div><div><div class="testi-name">Sara Khan</div><div class="testi-where">🇪🇺 Schengen Visa Approved</div></div><span class="testi-verified">Verified</span></div></div>
+          <div class="testi-card"><div class="testi-stars">★★★★★</div><q>My son is now studying in Poland on a 50% scholarship. Travxo found the program, wrote his SOP, and managed everything. Best investment our family ever made.</q><div class="testi-person"><div class="testi-av">MA</div><div><div class="testi-name">Muhammad Ali</div><div class="testi-where">🇵🇱 Son at University of Warsaw</div></div><span class="testi-verified">Verified</span></div></div>
+          <div class="testi-card"><div class="testi-stars">★★★★★</div><q>Booked Canada visitor visas for our whole family. The team was thorough, organized, and got our approval in time for our trip. No stress, no surprises.</q><div class="testi-person"><div class="testi-av">FQ</div><div><div class="testi-name">Fatima Qureshi</div><div class="testi-where">🇨🇦 Canada Family Visitor Visa</div></div><span class="testi-verified">Verified</span></div></div>
+          <div class="testi-card"><div class="testi-stars">★★★★★</div><q>Studying in Paris on a near-zero tuition with an Eiffel scholarship. Travxo found this opportunity and made it happen. I can't thank them enough.</q><div class="testi-person"><div class="testi-av">ZH</div><div><div class="testi-name">Zainab Hassan</div><div class="testi-where">🇫🇷 Eiffel Scholar, Paris</div></div><span class="testi-verified">Verified</span></div></div>
+        </div>
+      </div>
+      <div class="testi-ctrl reveal">
+        <button class="tslider-btn" onclick="tSlide(-1)">←</button>
+        <div class="testi-dots" id="tdots">
+          <div class="testi-dot on" onclick="tGo(0)"></div>
+          <div class="testi-dot" onclick="tGo(1)"></div>
+          <div class="testi-dot" onclick="tGo(2)"></div>
+          <div class="testi-dot" onclick="tGo(3)"></div>
+          <div class="testi-dot" onclick="tGo(4)"></div>
+        </div>
+        <button class="tslider-btn" onclick="tSlide(1)">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2>Start Your Journey Today</h2>
+    <p>Book a free consultation and explore your options for studying or traveling abroad.</p>
+    <div class="cta-band-btns">
+      <span class="btn btn-gold" onclick="goPage('contact')">📅 Book Free Consultation</span>
+      <a href="https://wa.me/923321434413" target="_blank" class="btn btn-wa">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+
+</div><!-- /page-home -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE: STUDY IN EUROPE
+════════════════════════════════════════ -->
+<div class="page" id="page-study">
+  <div class="inner-hero">
+    <div class="container">
+      <span class="label">Student Consultancy</span>
+      <h1>Study in Europe Affordably</h1>
+      <p>Access world-class European education with minimal or zero tuition fees. We guide Pakistani students from university selection to enrollment — and beyond.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <span class="btn btn-gold" onclick="goPage('contact')">Book Free Assessment</span>
+        <a href="#" class="btn btn-white">Download Study Guide</a>
+      </div>
+    </div>
+  </div>
+  <section class="section" style="background:var(--cream)">
+    <div class="container">
+      <span class="label">What We Offer</span>
+      <h2 class="section-title">Complete Study Abroad Services</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;margin-top:36px">
+        <div class="v-card reveal"><div class="v-card-icon">📝</div><h4>University Selection</h4><p>Shortlisting the best universities based on your profile, budget, CGPA, and career goals.</p></div>
+        <div class="v-card reveal d1"><div class="v-card-icon">📄</div><h4>SOP & CV Writing</h4><p>Professionally crafted statements of purpose and CVs tailored to each university's expectations.</p></div>
+        <div class="v-card reveal d2"><div class="v-card-icon">🏆</div><h4>Scholarship Guidance</h4><p>DAAD, Eiffel, Erasmus+, HEC, and institution-specific scholarships — we identify and apply for them all.</p></div>
+        <div class="v-card reveal d3"><div class="v-card-icon">🎫</div><h4>Student Visa</h4><p>Full visa application management including embassy preparation and mock interviews.</p></div>
+        <div class="v-card reveal"><div class="v-card-icon">🏠</div><h4>Accommodation Support</h4><p>Student dormitory applications, private housing guidance, and pre-arrival checklists.</p></div>
+        <div class="v-card reveal d1"><div class="v-card-icon">🗺️</div><h4>Pre-Departure Guidance</h4><p>Banking, travel insurance, health cover, cultural orientation, and everything you need before you fly.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <span class="label">Destinations</span>
+      <h2 class="section-title">Countries We Cover</h2>
+      <p class="section-sub">Expert guidance for six major European study destinations, each with unique advantages for Pakistani students.</p>
+      <div class="country-cards">
+        <div class="c-card reveal"><div class="c-card-img"><img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=500&q=80" alt="Germany"><div class="c-card-flag">🇩🇪</div></div><div class="c-card-body"><h4>Germany</h4><p>Public universities with zero or minimal tuition. Requires APS certificate and German language proficiency for most programs.</p><div class="c-pills"><span class="c-pill">€0–350/semester</span><span class="c-pill">APS Required</span><span class="c-pill">DAAD Scholarships</span></div><a class="c-card-link" onclick="goPage('country-germany')" style="cursor:pointer">Explore Universities →</a></div></div>
+        <div class="c-card reveal d1"><div class="c-card-img"><img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=500&q=80" alt="France"><div class="c-card-flag">🇫🇷</div></div><div class="c-card-body"><h4>France</h4><p>Low tuition fees at public grandes écoles and universities. Eiffel Excellence Scholarship available for top students.</p><div class="c-pills"><span class="c-pill">€170–380/year</span><span class="c-pill">Eiffel Scholarship</span><span class="c-pill">English Programs</span></div><a class="c-card-link" onclick="goPage('country-france')" style="cursor:pointer">Explore Universities →</a></div></div>
+        <div class="c-card reveal d2"><div class="c-card-img"><img src="https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=500&q=80" alt="Austria"><div class="c-card-flag">🇦🇹</div></div><div class="c-card-body"><h4>Austria</h4><p>Research-intensive universities with affordable fees. Strong engineering and science programs in English.</p><div class="c-pills"><span class="c-pill">€726/year</span><span class="c-pill">Research Focus</span><span class="c-pill">Vibrant Culture</span></div><a class="c-card-link" onclick="goPage('country-austria')" style="cursor:pointer">Explore Universities →</a></div></div>
+        <div class="c-card reveal"><div class="c-card-img"><img src="https://images.unsplash.com/photo-1529260830199-42c24126f198?w=500&q=80" alt="Italy"><div class="c-card-flag">🇮🇹</div></div><div class="c-card-body"><h4>Italy</h4><p>Prestigious public universities with income-based tuition reductions. Exceptional for arts, design, and engineering.</p><div class="c-pills"><span class="c-pill">€1,000–4,000/year</span><span class="c-pill">Income Reductions</span><span class="c-pill">Top Rankings</span></div><a class="c-card-link" onclick="goPage('country-italy')" style="cursor:pointer">Explore Universities →</a></div></div>
+        <div class="c-card reveal d1"><div class="c-card-img"><img src="https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=500&q=80" alt="Poland"><div class="c-card-flag">🇵🇱</div></div><div class="c-card-body"><h4>Poland</h4><p>Affordable English-medium programs with reasonable living costs and a growing international student community.</p><div class="c-pills"><span class="c-pill">€2,000–5,000/year</span><span class="c-pill">English Programs</span><span class="c-pill">Low Living Costs</span></div><a class="c-card-link" onclick="goPage('country-poland')" style="cursor:pointer">Explore Universities →</a></div></div>
+        <div class="c-card reveal d2"><div class="c-card-img"><img src="https://images.unsplash.com/photo-1548426434-5e57e4f1da70?w=500&q=80" alt="Finland"><div class="c-card-flag">🇫🇮</div></div><div class="c-card-body"><h4>Finland</h4><p>Innovation-driven education with scholarships available for outstanding international students. Strong tech and design schools.</p><div class="c-pills"><span class="c-pill">Scholarships Available</span><span class="c-pill">Tech & Innovation</span><span class="c-pill">High Quality Life</span></div><a class="c-card-link" onclick="goPage('country-finland')" style="cursor:pointer">Explore Universities →</a></div></div>
+      </div>
+    </div>
+  </section>
+  <div class="cta-band"><h2>Ready to Study in Europe?</h2><p>Book your free consultation and get a personalized study roadmap today.</p><div class="cta-band-btns"><span class="btn btn-gold" onclick="goPage('contact')">Book Free Consultation</span><a href="https://wa.me/923321434413" class="btn btn-wa" target="_blank">Chat on WhatsApp</a></div></div>
+</div><!-- /page-study -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE: VISA SERVICES
+════════════════════════════════════════ -->
+<div class="page" id="page-visa">
+  <div class="inner-hero">
+    <div class="container">
+      <span class="label">Global Visa Consultancy</span>
+      <h1>Travel the World<br>with Confidence</h1>
+      <p>Expert visa guidance for Schengen, Canada, Australia, UK, and global destinations. From documentation to approval — we manage your entire case.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <span class="btn btn-gold" onclick="goPage('contact')">Apply for Visa</span>
+        <span class="btn btn-white" onclick="goPage('contact')">Check Eligibility</span>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <span class="label">Our Visa Services</span>
+      <h2 class="section-title">Comprehensive Visa Assistance</h2>
+      <p class="section-sub">We handle every visa type for Pakistani passport holders with a 98% success rate and deep embassy knowledge.</p>
+      <div class="visa-cards">
+        <div class="v-card reveal"><div class="v-card-icon">🇪🇺</div><h4>Schengen Visa</h4><p>All 27 Schengen member countries. Tourist, business, family visit, and medical travel — complete documentation management.</p></div>
+        <div class="v-card reveal d1"><div class="v-card-icon">🇨🇦</div><h4>Canada Visitor Visa</h4><p>Family sponsorship, independent visitor visa, and Super Visa applications with financial documentation support.</p></div>
+        <div class="v-card reveal d2"><div class="v-card-icon">🇦🇺</div><h4>Australia Visitor Visa</h4><p>Tourist and business visitor visas with expert guidance on the Australian online application process.</p></div>
+        <div class="v-card reveal d3"><div class="v-card-icon">🇬🇧</div><h4>UK Standard Visitor Visa</h4><p>Tourism, family visits, and business travel to the United Kingdom with complete guidance on UKVI requirements.</p></div>
+        <div class="v-card reveal"><div class="v-card-icon">🌐</div><h4>Global Visa Services</h4><p>Tourist and business visas for USA, Dubai, Malaysia, Turkey, and 50+ destinations worldwide.</p></div>
+        <div class="v-card reveal d1"><div class="v-card-icon">🔄</div><h4>Visa Refusal Review</h4><p>In-depth analysis of refusal letters, strategic re-application preparation, and stronger documentation rebuilding.</p></div>
+        <div class="v-card reveal d2"><div class="v-card-icon">📂</div><h4>Travel Documentation</h4><p>Travel insurance, bank statements, invitation letters, NOC letters, and complete document checklist management.</p></div>
+        <div class="v-card reveal d3"><div class="v-card-icon">🛂</div><h4>Immigration Advisory</h4><p>Long-term residency, work permits, and global mobility pathways for families seeking permanent relocation options.</p></div>
+      </div>
+    </div>
+  </section>
+  <!-- ── REQUIRED DOCUMENTS SECTION ── -->
+  <section class="section" style="background:var(--cream)">
+    <div class="container">
+      <span class="label reveal">Document Checklists</span>
+      <h2 class="section-title reveal">Required Documents by Visa Type</h2>
+      <p class="section-sub reveal">Every document category is critical. Missing even one item can lead to rejection. Below are the standard requirements — our team verifies your specific file before submission.</p>
+
+      <!-- Visa Type Selector Tabs -->
+      <div class="doc-tabs reveal" id="docTabs">
+        <button class="doc-tab active" onclick="switchDocTab(this,'doc-schengen')">🇪🇺 Schengen</button>
+        <button class="doc-tab" onclick="switchDocTab(this,'doc-canada')">🇨🇦 Canada</button>
+        <button class="doc-tab" onclick="switchDocTab(this,'doc-australia')">🇦🇺 Australia</button>
+        <button class="doc-tab" onclick="switchDocTab(this,'doc-uk')">🇬🇧 UK</button>
+        <button class="doc-tab" onclick="switchDocTab(this,'doc-student')">🎓 Student Visa</button>
+      </div>
+
+      <!-- ── SCHENGEN ── -->
+      <div class="doc-panel active" id="doc-schengen">
+        <div class="doc-panel-header">
+          <div class="doc-panel-flag">🇪🇺</div>
+          <div>
+            <h3 class="doc-panel-title">Schengen Visa Documents</h3>
+            <p class="doc-panel-sub">Required for all 27 Schengen zone countries (Germany, France, Italy, Spain, Netherlands, Austria, etc.)</p>
+          </div>
+          <a href="#" class="doc-download-btn">⬇ Download Checklist PDF</a>
+        </div>
+        <div class="doc-categories">
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">🪪</span><h4>Personal Documents</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Valid Passport</strong> — Original + all old passports. Must have min. 2 blank pages & be valid 3+ months beyond travel dates.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Passport-Size Photos</strong> — 2 recent photos (35×45mm, white background, taken within last 6 months).</div></li>
+              <li><span class="doc-check">✓</span><div><strong>National Identity Card (CNIC)</strong> — Photocopy of front and back.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Visa Application Form</strong> — Completed, signed, and dated Schengen visa application form.</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">✈</span><h4>Travel Documents</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Flight Itinerary / Round-Trip Booking</strong> — Confirmed or dummy round-trip flight reservation showing entry and exit dates.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Hotel / Accommodation Proof</strong> — Hotel bookings, Airbnb confirmations, or host's invitation letter with their ID.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Travel Insurance</strong> — Minimum coverage €30,000 for medical emergencies, valid for all Schengen countries and entire trip duration.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Detailed Day-by-Day Itinerary</strong> — A clear travel plan for each day of your stay.</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">💰</span><h4>Financial Documents</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Bank Statement (Last 6 Months)</strong> — Original, bank-stamped. Must show sufficient balance (min. €50–70 per day of stay recommended).</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Bank Certificate / Letter</strong> — On bank letterhead confirming account holder's name, account number, and available balance.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Salary Slips / Income Proof</strong> — Last 3–6 months' salary slips from employer (if salaried).</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Tax Returns / FBR Documents</strong> — If self-employed or business owner, income tax returns for the last 1–2 years.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Sponsor's Financial Documents</strong> — If someone else is sponsoring the trip, their bank statements, employment letter, and affidavit of support.</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">💼</span><h4>Employment / Business Documents</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Employment Letter (NOC)</strong> — On company letterhead: position, salary, leave approval dates, and confirmation of return to job.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Business Ownership Proof</strong> — NTN, business registration certificate, chamber membership (if self-employed).</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Leave Approval Letter</strong> — From employer confirming approved leave dates matching your travel period.</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">🏠</span><h4>Ties to Home Country</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Property Documents</strong> — Property ownership papers showing you have assets in Pakistan and strong reason to return.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Family Ties Evidence</strong> — Marriage certificate, children's birth certificates, or family registration certificate.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Previous Travel History</strong> — Copies of all previous visas and entry/exit stamps from any country.</div></li>
+            </ul>
+          </div>
+        </div>
+        <div class="doc-note">
+          <span class="doc-note-icon">⚠️</span>
+          <p><strong>Important:</strong> Requirements may vary slightly by embassy (German, French, Italian, etc.). Our team verifies your complete file against the specific consulate's current requirements before submission.</p>
+        </div>
+      </div>
+
+      <!-- ── CANADA ── -->
+      <div class="doc-panel" id="doc-canada">
+        <div class="doc-panel-header">
+          <div class="doc-panel-flag">🇨🇦</div>
+          <div>
+            <h3 class="doc-panel-title">Canada Visitor Visa (TRV) Documents</h3>
+            <p class="doc-panel-sub">Temporary Resident Visa for tourism, family visits, or business travel to Canada.</p>
+          </div>
+          <a href="#" class="doc-download-btn">⬇ Download Checklist PDF</a>
+        </div>
+        <div class="doc-categories">
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">🪪</span><h4>Personal & Identity Documents</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Valid Passport</strong> — Must be valid for the entire duration of the planned stay in Canada.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>CNIC / Family Registration Certificate (FRC)</strong> — Original CNIC plus NADRA FRC for family applications.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Passport-Size Photographs</strong> — Recent passport photos as per IRCC specifications.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Birth Certificate</strong> — Required if applying with family members or for child applicants.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Marriage Certificate</strong> — If including spouse in application (Nadra-issued or court-attested).</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">💰</span><h4>Financial Documents</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Bank Statement (Last 6 Months)</strong> — Original, bank-stamped. Consistent balance demonstrating ability to fund the trip.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Bank Certificate</strong> — Confirming relationship with bank, account type, and current balance.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Salary Slips (Last 3–6 Months)</strong> — For salaried individuals as proof of regular income.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Income Tax Returns (FBR)</strong> — Last 2 years' filed tax returns demonstrating financial standing.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Property / Investment Portfolio</strong> — Proof of assets: property papers, shares, mutual funds, vehicle ownership, etc.</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">💼</span><h4>Employment / Business Proof</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>No Objection Certificate (NOC)</strong> — From employer on letterhead with job title, salary, leave approval, and guaranteed return to position.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Business Registration Certificate</strong> — If self-employed: NTN, SECP registration, or chamber of commerce certificate.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Business Bank Statement</strong> — Company's bank statement for business owners showing active operations.</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">🇨🇦</span><h4>Canada Host / Invitation Documents</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Invitation Letter from Host in Canada</strong> — If visiting family/friends: their letter, Canadian PR/Citizenship, and proof of address.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Host's Status in Canada</strong> — Copy of Canadian PR card, citizenship certificate, or passport.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Accommodation Proof</strong> — Hotel bookings or host's address proof if staying with family/friends.</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">✈</span><h4>Travel & Purpose Documents</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Flight Itinerary</strong> — Booked or dummy round-trip reservation clearly showing arrival/departure dates.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Travel Itinerary / Purpose Letter</strong> — Detailed letter explaining purpose of visit, planned activities, and commitment to return.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Previous Travel History</strong> — Copies of all prior visas (especially USA, UK, Schengen) significantly strengthen Canada TRV applications.</div></li>
+            </ul>
+          </div>
+        </div>
+        <div class="doc-note">
+          <span class="doc-note-icon">💡</span>
+          <p><strong>Pro Tip:</strong> Canada places strong emphasis on ties to home country and financial stability. A consistent 6-month bank history with no sudden large deposits is critical. Our team helps you build the strongest possible financial narrative.</p>
+        </div>
+      </div>
+
+      <!-- ── AUSTRALIA ── -->
+      <div class="doc-panel" id="doc-australia">
+        <div class="doc-panel-header">
+          <div class="doc-panel-flag">🇦🇺</div>
+          <div>
+            <h3 class="doc-panel-title">Australia Visitor Visa (Subclass 600) Documents</h3>
+            <p class="doc-panel-sub">For tourism, family visits, or business travel to Australia. Applied online via ImmiAccount.</p>
+          </div>
+          <a href="#" class="doc-download-btn">⬇ Download Checklist PDF</a>
+        </div>
+        <div class="doc-categories">
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">🪪</span><h4>Identity & Personal Documents</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Valid Passport (Scanned Copy)</strong> — Bio-data page. Passport must be valid for the duration of your stay.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>CNIC (Scanned)</strong> — Front and back of national identity card.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Digital Passport Photo</strong> — Recent photo meeting Australian immigration specifications.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Marriage / Birth Certificates</strong> — If applying with family members (must be translated to English if in Urdu).</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">💰</span><h4>Financial Evidence</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Bank Statements (Last 6 Months)</strong> — Showing sufficient funds to cover the entire trip. Australia expects clear, consistent financial history.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Bank Letter / Certificate</strong> — Confirming account details and current balance.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Salary Slips / Proof of Income</strong> — Last 3 months' payslips or business income evidence.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Tax Returns (FBR)</strong> — Demonstrates established financial presence in Pakistan.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Assets Proof</strong> — Property papers, vehicle ownership, investments showing you have reasons to return.</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">💼</span><h4>Employment / Occupation</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Employment Letter</strong> — On company letterhead: designation, salary, leave approval, and confirmation you will return to your position.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Business Evidence</strong> — If self-employed: NTN, business registration, bank statement showing business activity.</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">✈</span><h4>Travel Purpose & Plans</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Travel Itinerary / Purpose Statement</strong> — Clear explanation of your visit purpose, planned activities, and accommodation details.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Flight Bookings (Return)</strong> — Dummy or confirmed round-trip flight reservations.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Hotel / Accommodation Confirmation</strong> — Bookings or invitation letter from Australian host with their status documents.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Previous International Travel</strong> — Copies of all prior visas especially USA, UK, Schengen. Significantly strengthens Australian applications.</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">🏥</span><h4>Additional Requirements</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Health Insurance</strong> — Proof of adequate health insurance for the duration of your stay in Australia.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Character Declaration</strong> — You may be asked to provide a police clearance certificate (PCC) from Pakistan.</div></li>
+            </ul>
+          </div>
+        </div>
+        <div class="doc-note">
+          <span class="doc-note-icon">⚠️</span>
+          <p><strong>Note:</strong> Australia's visitor visa is entirely online via ImmiAccount. There is no embassy appointment. Processing typically takes 15–60 days. Our team manages the complete online application on your behalf.</p>
+        </div>
+      </div>
+
+      <!-- ── UK ── -->
+      <div class="doc-panel" id="doc-uk">
+        <div class="doc-panel-header">
+          <div class="doc-panel-flag">🇬🇧</div>
+          <div>
+            <h3 class="doc-panel-title">UK Standard Visitor Visa Documents</h3>
+            <p class="doc-panel-sub">For tourism, family visits, medical treatment, or short business trips to the United Kingdom.</p>
+          </div>
+          <a href="#" class="doc-download-btn">⬇ Download Checklist PDF</a>
+        </div>
+        <div class="doc-categories">
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">🪪</span><h4>Personal Documents</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Valid Passport</strong> — All old passports must also be submitted. Passport must cover entire intended stay.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>CNIC</strong> — Photocopy of both sides of national identity card.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Passport-Size Photos</strong> — As per UKVI specifications (45mm × 35mm, light grey or cream background).</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Family Documents</strong> — Marriage certificate and children's birth certificates (if applicable).</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">💰</span><h4>Financial Documents</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Bank Statement (Last 6 Months)</strong> — Original stamped. UK Home Office scrutinizes transactions carefully — avoid large unexplained deposits.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Bank Certificate</strong> — Official letter from bank on letterhead confirming account status and balance.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Salary Slips (Last 6 Months)</strong> — For salaried employees to demonstrate consistent income.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Income Tax Returns</strong> — FBR tax returns for the past 2 years (especially important for self-employed applicants).</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Property / Asset Evidence</strong> — Ownership documents showing financial roots in Pakistan.</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">💼</span><h4>Employment / Business</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Employer's NOC / Leave Letter</strong> — Confirming role, salary, leave approval, and guaranteed return to employment.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Business Registration / NTN</strong> — For business owners: full documentation of business ownership and activity.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Company Financial Statement</strong> — Business bank statements and accounts showing viable business operations.</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">✈</span><h4>Travel Plans & Purpose</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Cover Letter</strong> — Detailed personal letter explaining purpose, itinerary, accommodation plan, and clear intent to return.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Flight Itinerary (Return)</strong> — Round-trip flight booking confirming travel dates.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Accommodation Proof</strong> — Hotel reservations or UK host's address proof and invitation letter.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>UK Contact / Sponsor Letter</strong> — If visiting family or friends: their UK status documents, address proof, and support letter.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Prior Visa History</strong> — Copies of Schengen, US, Canadian, or other prior visas. Excellent travel history greatly strengthens UK applications.</div></li>
+            </ul>
+          </div>
+        </div>
+        <div class="doc-note">
+          <span class="doc-note-icon">💡</span>
+          <p><strong>UK Tip:</strong> The UK Home Office places exceptional weight on your cover letter and the "genuine visitor" test. Our team crafts precise, compelling cover letters tailored to your specific circumstances and travel history.</p>
+        </div>
+      </div>
+
+      <!-- ── STUDENT VISA ── -->
+      <div class="doc-panel" id="doc-student">
+        <div class="doc-panel-header">
+          <div class="doc-panel-flag">🎓</div>
+          <div>
+            <h3 class="doc-panel-title">European Student Visa Documents</h3>
+            <p class="doc-panel-sub">General requirements for student visas to Germany, France, Austria, Italy, Poland & other European countries.</p>
+          </div>
+          <a href="#" class="doc-download-btn">⬇ Download Checklist PDF</a>
+        </div>
+        <div class="doc-categories">
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">🪪</span><h4>Personal Identity Documents</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Valid Passport</strong> — Must be valid for at least 6 months beyond the visa expiry date. All old passports to be included.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>CNIC / NICOP</strong> — Pakistani national identity card or NICOP for overseas Pakistanis.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Passport-Size Photos</strong> — Recent biometric photos meeting the specific embassy's specifications.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Birth Certificate</strong> — Nadra-issued or equivalent, may need to be attested / apostilled.</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">🏫</span><h4>Academic & Admission Documents</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>University Admission Letter</strong> — Official letter of admission from the European university confirming your enrolled program.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Academic Transcripts & Certificates</strong> — Attested copies of your degree(s), HEC-attested transcripts and certificates.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>APS Certificate (Germany Only)</strong> — Academic Evaluation Centre certificate verifying Pakistani academic qualifications for German universities.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Language Certificate</strong> — IELTS, TestDaF, DELF, or equivalent language proficiency test results as required by your university.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Statement of Purpose (SOP)</strong> — A strong, university-specific personal statement explaining your motivation and study plans.</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">💰</span><h4>Financial Proof of Subsistence</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Blocked Account (Germany)</strong> — €11,208 minimum deposited in a German blocked account (Sperrkonto) via Fintiba, Coracle, or Deutsche Bank.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Scholarship Letter</strong> — Official award letter if you have a DAAD, Eiffel, Erasmus+, or institutional scholarship.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Sponsor's Financial Documents</strong> — If family-sponsored: bank statements, CNIC, salary slips, property papers, and formal sponsorship declaration (Verpflichtungserklärung for Germany).</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Bank Statement (Self-funded)</strong> — Applicant's or sponsor's recent 6-month bank statement showing adequate funds.</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">🏠</span><h4>Accommodation & Insurance</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Proof of Accommodation in Europe</strong> — Confirmation of student dormitory, private rental agreement, or host's address confirmation.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Health / Travel Insurance</strong> — Comprehensive health insurance valid in the destination country for at least the first 90 days.</div></li>
+            </ul>
+          </div>
+          <div class="doc-category">
+            <div class="doc-cat-header"><span class="doc-cat-icon">✈</span><h4>Travel Documents</h4></div>
+            <ul class="doc-list">
+              <li><span class="doc-check">✓</span><div><strong>Flight Booking / Itinerary</strong> — One-way or return flight booking showing planned arrival date in the destination country.</div></li>
+              <li><span class="doc-check">✓</span><div><strong>Visa Application Form</strong> — Completed and signed national visa (long-stay) application form for the specific country.</div></li>
+            </ul>
+          </div>
+        </div>
+        <div class="doc-note">
+          <span class="doc-note-icon">🇩🇪</span>
+          <p><strong>Germany Note:</strong> Germany requires the APS certificate before applying for a student visa — this process takes 6–10 weeks. Start early. Our team coordinates the entire timeline including APS, blocked account, TestDaF registration, and visa appointment simultaneously.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section process-section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:56px" class="reveal"><span class="label" style="justify-content:center">Visa Process</span><h2 class="section-title" style="color:var(--white)">How We Handle Your Visa</h2></div>
+      <div class="process-steps">
+        <div class="step reveal"><div class="step-num">1</div><h4>Free Consultation</h4><p>Tell us your travel goals, travel history, and financial situation.</p></div>
+        <div class="step reveal d1"><div class="step-num">2</div><h4>Eligibility Review</h4><p>We assess your profile and recommend the strongest visa strategy.</p></div>
+        <div class="step reveal d2"><div class="step-num">3</div><h4>Documentation</h4><p>We prepare and organize your complete visa file with zero errors.</p></div>
+        <div class="step reveal d3"><div class="step-num">4</div><h4>Submission & Approval</h4><p>We submit, track, and guide you all the way to your approved stamp.</p></div>
+      </div>
+    </div>
+  </section>
+  <div class="cta-band"><h2>Ready to Get Your Visa?</h2><p>Book a free eligibility check and let's get started on your visa today.</p><div class="cta-band-btns"><span class="btn btn-gold" onclick="goPage('contact')">Apply for Visa</span><a href="https://wa.me/923321434413" class="btn btn-wa" target="_blank">Chat on WhatsApp</a></div></div>
+</div><!-- /page-visa -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE: ABOUT
+════════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="inner-hero">
+    <div class="container">
+      <span class="label">Our Story</span>
+      <h1>Pakistan's Trusted Partner<br>for Global Education & Mobility</h1>
+      <p>Founded to make European education and global travel genuinely accessible for Pakistani students and families — not just the privileged few.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-wrap reveal">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=85" alt="Travxo Team">
+          <div class="about-badge">
+            <div class="ab-num">10+</div>
+            <div class="ab-text">Years serving Pakistani families</div>
+          </div>
+        </div>
+        <div class="reveal d2">
+          <span class="label">About Us</span>
+          <h2 class="section-title">Honest. Affordable. Expert.</h2>
+          <p style="color:var(--muted);font-weight:300;line-height:1.75;margin-bottom:18px">Travxo was built on a single belief: every Pakistani student and family deserves a shot at the world, regardless of financial background. Europe — with its tuition-free and low-cost universities — is the world's best-kept secret for ambitious students.</p>
+          <p style="color:var(--muted);font-weight:300;line-height:1.75;margin-bottom:28px">We combine deep expertise in European admissions, visa documentation, and genuine care for our clients. Our advisors have personally navigated these processes and understand every challenge Pakistani families face.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px">
+            <div style="background:var(--cream);border-radius:12px;padding:20px;text-align:center"><div style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:800;color:var(--gold)">500+</div><div style="font-size:.85rem;color:var(--muted)">Students Placed in Europe</div></div>
+            <div style="background:var(--cream);border-radius:12px;padding:20px;text-align:center"><div style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:800;color:var(--gold)">98%</div><div style="font-size:.85rem;color:var(--muted)">Visa Success Rate</div></div>
+            <div style="background:var(--cream);border-radius:12px;padding:20px;text-align:center"><div style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:800;color:var(--gold)">15+</div><div style="font-size:.85rem;color:var(--muted)">Countries Covered</div></div>
+            <div style="background:var(--cream);border-radius:12px;padding:20px;text-align:center"><div style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:800;color:var(--gold)">10+</div><div style="font-size:.85rem;color:var(--muted)">Years of Experience</div></div>
+          </div>
+          <span class="btn btn-gold" onclick="goPage('contact')" style="cursor:pointer">Book a Free Consultation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" style="background:var(--cream)">
+    <div class="container" style="text-align:center">
+      <span class="label" style="justify-content:center">Our Mission</span>
+      <h2 class="section-title">Focused on Affordability &amp; Global Access</h2>
+      <p style="color:var(--muted);font-weight:300;line-height:1.75;max-width:680px;margin:0 auto 48px;font-size:1.05rem">We believe education is a right, not a privilege. Our mission is to connect ambitious Pakistani students with affordable European universities and help families navigate global mobility with confidence and dignity.</p>
+      <div class="why-grid">
+        <div class="why-card reveal"><div class="why-icon">🎓</div><h4>Education First</h4><p>We prioritize pathways that are genuinely affordable and academically excellent for Pakistani students.</p></div>
+        <div class="why-card reveal d1"><div class="why-icon">🌍</div><h4>Global Access</h4><p>From Schengen to Canada — we open doors that felt impossible before.</p></div>
+        <div class="why-card reveal d2"><div class="why-icon">❤️</div><h4>Family Values</h4><p>We treat every client like family. Your trust is our most valued asset.</p></div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-about -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE: CONTACT
+════════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="inner-hero">
+    <div class="container">
+      <span class="label">Get in Touch</span>
+      <h1>Book Your Free<br>Consultation Today</h1>
+      <p>No commitment. No hidden fees. Just honest, expert advice in Urdu or English — tailored to your goals.</p>
+    </div>
+  </div>
+  <section class="section lead-section">
+    <div class="container lead-inner">
+      <div class="lead-left reveal">
+        <span class="label">Contact Travxo</span>
+        <h2>We're Here to Help You Succeed</h2>
+        <p>Our team of experienced consultants is ready to guide you through every step of your European education or visa journey. Reach out via any channel below.</p>
+        <div class="contact-info">
+          <div class="ci"><div class="ci-icon">📍</div><div class="ci-text"><strong>Office</strong><span>Main Boulevard, Lahore, Pakistan</span></div></div>
+          <div class="ci"><div class="ci-icon">📞</div><div class="ci-text"><strong>Phone / WhatsApp</strong><span>+92 300 000 0000</span></div></div>
+          <div class="ci"><div class="ci-icon">📧</div><div class="ci-text"><strong>Email</strong><span>info@travxo.com</span></div></div>
+          <div class="ci"><div class="ci-icon">⏰</div><div class="ci-text"><strong>Office Hours</strong><span>Mon – Sat: 10:00 AM – 7:00 PM</span></div></div>
+          <div class="ci"><div class="ci-icon">💬</div><div class="ci-text"><strong>WhatsApp Support</strong><span>Available 24/7 for urgent inquiries</span></div></div>
+        </div>
+        <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap">
+          <a href="https://wa.me/923321434413" target="_blank" class="btn btn-wa">💬 Chat on WhatsApp</a>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <div class="form-card">
+          <h3>Book Free Consultation</h3>
+          <p class="form-sub">Fill in your details and we'll contact you within 2 hours.</p>
+          <div class="form-row">
+            <div class="fg"><label>Full Name *</label><input type="text" placeholder="Muhammad Ali"></div>
+            <div class="fg"><label>WhatsApp Number *</label><input type="tel" placeholder="+92 300 0000000"></div>
+          </div>
+          <div class="fg"><label>Email Address</label><input type="email" placeholder="you@email.com"></div>
+          <div class="fg"><label>I am interested in *</label>
+            <select>
+              <option value="">Select a Service</option>
+              <option>Study in Europe — University Admission</option>
+              <option>Schengen Visa</option>
+              <option>Canada Visitor Visa</option>
+              <option>Australia Visitor Visa</option>
+              <option>UK Visitor Visa</option>
+              <option>Scholarship Guidance</option>
+              <option>SOP & CV Writing</option>
+              <option>Visa Refusal Review</option>
+              <option>Immigration & Global Mobility</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="fg"><label>Preferred Country</label>
+              <select>
+                <option value="">Select Country</option>
+                <option>Germany 🇩🇪</option><option>France 🇫🇷</option><option>Austria 🇦🇹</option>
+                <option>Italy 🇮🇹</option><option>Poland 🇵🇱</option><option>Finland 🇫🇮</option>
+                <option>Canada 🇨🇦</option><option>Australia 🇦🇺</option><option>UK 🇬🇧</option>
+                <option>Multiple / Not Sure</option>
+              </select>
+            </div>
+            <div class="fg"><label>Preferred Intake</label>
+              <select>
+                <option>Winter 2025</option><option>Summer 2025</option>
+                <option>Winter 2026</option><option>Not Sure</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg"><label>Tell us about your goals</label><textarea placeholder="e.g. I want to study Masters in Computer Science in Germany on a scholarship..."></textarea></div>
+          <button class="form-submit" onclick="submitForm(this)">🚀 Book My Free Consultation</button>
+          <p class="form-note">🔒 Your information is 100% confidential and never shared with third parties.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-contact -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE: BLOG
+════════════════════════════════════════ -->
+<div class="page" id="page-blog">
+  <div class="inner-hero">
+    <div class="container">
+      <span class="label">Resources & Guides</span>
+      <h1>Knowledge Hub for<br>Pakistani Students &amp; Travelers</h1>
+      <p>Expert articles, visa guides, scholarship deadlines, and study tips — updated regularly by our consultants.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="blog-grid">
+        <div class="blog-card reveal"><div class="blog-img"><span class="blog-cat">Study Guide</span><img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=600&q=80" alt="Germany Study"></div><div class="blog-body"><div class="blog-meta"><span>📅 March 2025</span><span>⏱ 9 min read</span></div><h4>How Pakistani Students Can Study in Germany Tuition-Free in 2025</h4><p>Germany's public universities charge almost zero tuition. Here's a step-by-step guide including APS, IELTS/TestDaF, blocked accounts, and student visa.</p><a class="blog-more">Read Full Guide →</a></div></div>
+        <div class="blog-card reveal d1"><div class="blog-img"><span class="blog-cat">Visa Tips</span><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80" alt="Schengen Visa"></div><div class="blog-body"><div class="blog-meta"><span>📅 Feb 2025</span><span>⏱ 7 min read</span></div><h4>Schengen Visa Refusal: Top 10 Reasons for Pakistanis & How to Fix Them</h4><p>Most Schengen refusals are avoidable. We break down the exact reasons and how to build a winning second application.</p><a class="blog-more">Read Full Guide →</a></div></div>
+        <div class="blog-card reveal d2"><div class="blog-img"><span class="blog-cat">Scholarships</span><img src="https://images.unsplash.com/photo-1627556704302-624286467c65?w=600&q=80" alt="Scholarships"></div><div class="blog-body"><div class="blog-meta"><span>📅 Jan 2025</span><span>⏱ 11 min read</span></div><h4>Best European Scholarships for Pakistanis 2025: DAAD, Eiffel, Erasmus & More</h4><p>A complete list of fully and partially funded scholarships available to Pakistani students for European universities this year.</p><a class="blog-more">Read Full Guide →</a></div></div>
+        <div class="blog-card reveal"><div class="blog-img"><span class="blog-cat">Visa Guide</span><img src="https://images.unsplash.com/photo-1517935706615-2717063c2225?w=600&q=80" alt="Canada Visa"></div><div class="blog-body"><div class="blog-meta"><span>📅 Jan 2025</span><span>⏱ 8 min read</span></div><h4>Canada Visitor Visa for Pakistanis: Complete 2025 Application Guide</h4><p>Everything you need to know — financial requirements, invitation letters, travel history, and how to maximize approval chances.</p><a class="blog-more">Read Full Guide →</a></div></div>
+        <div class="blog-card reveal d1"><div class="blog-img"><span class="blog-cat">Study</span><img src="https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=600&q=80" alt="Poland"></div><div class="blog-body"><div class="blog-meta"><span>📅 Dec 2024</span><span>⏱ 6 min read</span></div><h4>Cheapest Universities in Europe for Pakistani Students — 2025 Ranking</h4><p>Compare tuition fees, living costs, and scholarship opportunities across Poland, Italy, France, and Germany.</p><a class="blog-more">Read Full Guide →</a></div></div>
+        <div class="blog-card reveal d2"><div class="blog-img"><span class="blog-cat">Documents</span><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="Documents"></div><div class="blog-body"><div class="blog-meta"><span>📅 Dec 2024</span><span>⏱ 5 min read</span></div><h4>Schengen Visa Checklist for Pakistanis: Document by Document</h4><p>The definitive checklist of every document you need for a Schengen tourist visa application from Pakistan.</p><a class="blog-more">Read Full Guide →</a></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="section" style="background:var(--cream)">
+    <div class="container" style="max-width:640px;text-align:center">
+      <span class="label" style="justify-content:center">Stay Updated</span>
+      <h2 class="section-title">Get the Latest Guides & Deadlines</h2>
+      <p style="color:var(--muted);font-weight:300;margin-bottom:28px">Subscribe to get scholarship deadlines, visa tips, and study guides delivered to your WhatsApp.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+        <a href="https://wa.me/923321434413" target="_blank" class="btn btn-gold">📲 Subscribe on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-blog -->
+
+
+<!-- ══ FOOTER (shared) ══ -->
+<footer>
+  <div class="footer-top">
+    <div class="f-brand">
+      <a class="nav-logo" onclick="goPage('home')" style="cursor:pointer">
+        <div class="nav-logo-mark">
+          <svg class="nav-logo-svg" viewBox="0 0 220 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="iconGradF" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#0EC6D5"/>
+                <stop offset="100%" stop-color="#0D2137"/>
+              </linearGradient>
+              <linearGradient id="compassF" x1="23" y1="4" x2="23" y2="42" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#F0BC34"/>
+                <stop offset="100%" stop-color="#D4870A"/>
+              </linearGradient>
+            </defs>
+            <circle cx="23" cy="23" r="21" fill="url(#iconGradF)"/>
+            <circle cx="23" cy="23" r="19" stroke="rgba(255,255,255,0.18)" stroke-width="0.8" fill="none"/>
+            <line x1="23" y1="6" x2="23" y2="40" stroke="rgba(255,255,255,0.2)" stroke-width="0.7"/>
+            <line x1="6" y1="23" x2="40" y2="23" stroke="rgba(255,255,255,0.2)" stroke-width="0.7"/>
+            <polygon points="23,8 26,23 23,20 20,23" fill="url(#compassF)"/>
+            <polygon points="23,38 26,23 23,26 20,23" fill="rgba(255,255,255,0.7)"/>
+            <circle cx="23" cy="23" r="2.5" fill="white"/>
+            <text x="23" y="5.5" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="4.5" font-weight="700" fill="#F0BC34" letter-spacing="0">N</text>
+            <text x="56" y="27" font-family="'Outfit', sans-serif" font-size="20" font-weight="700" fill="white" letter-spacing="1.5">TRAV</text>
+            <text x="107" y="27" font-family="'Outfit', sans-serif" font-size="20" font-weight="700" fill="#0EC6D5" letter-spacing="1.5">XO</text>
+            <text x="56" y="38" font-family="'Outfit', sans-serif" font-size="6" font-weight="400" fill="rgba(255,255,255,0.55)" letter-spacing="1.8">YOUR FUTURE BEYOND BORDERS</text>
+          </svg>
+        </div>
+      </a>
+      <p>Pakistan's trusted consultancy for affordable European education, Schengen visas, Canada, Australia, UK, and global mobility. Serving students and families since 2014.</p>
+      <div class="f-socials">
+        <a class="f-social" title="Facebook">f</a>
+        <a class="f-social" title="Instagram">📸</a>
+        <a class="f-social" title="TikTok">🎵</a>
+        <a class="f-social" title="YouTube">▶</a>
+        <a class="f-social" href="https://wa.me/923321434413" target="_blank" title="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h6>Study Abroad</h6>
+      <ul class="f-links">
+        <li><a onclick="goPage('study')">Study in Germany</a></li>
+        <li><a onclick="goPage('study')">Study in France</a></li>
+        <li><a onclick="goPage('study')">Study in Austria</a></li>
+        <li><a onclick="goPage('study')">Study in Italy</a></li>
+        <li><a onclick="goPage('study')">Study in Poland</a></li>
+        <li><a onclick="goPage('study')">Scholarships</a></li>
+        <li><a onclick="goPage('study')">SOP & CV Writing</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h6>Visa Services</h6>
+      <ul class="f-links">
+        <li><a onclick="goPage('visa')">Schengen Visa</a></li>
+        <li><a onclick="goPage('visa')">Canada Visitor Visa</a></li>
+        <li><a onclick="goPage('visa')">Australia Visitor Visa</a></li>
+        <li><a onclick="goPage('visa')">UK Visitor Visa</a></li>
+        <li><a onclick="goPage('visa')">Visa Refusal Review</a></li>
+        <li><a onclick="goPage('visa')">Immigration Advisory</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h6>Company</h6>
+      <ul class="f-links">
+        <li><a onclick="goPage('about')">About Us</a></li>
+        <li><a onclick="goPage('blog')">Blog & Resources</a></li>
+        <li><a onclick="goPage('contact')">Contact</a></li>
+        <li><a onclick="goPage('contact')">Book Consultation</a></li>
+        <li><a>Privacy Policy</a></li>
+        <li><a>Terms of Service</a></li>
+        <li><a>Refund Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bot" style="max-width:1240px;margin:0 auto">
+    <p>© 2025 Travxo. All rights reserved. | travxo.com | Your Future Beyond Borders</p>
+    <div class="f-legal">
+      <a>Privacy Policy</a>
+      <a>Terms of Service</a>
+      <a>Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════════
+     COUNTRY PAGES — SHARED STYLES
+════════════════════════════════════════ -->
+<style>
+.uni-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;margin-top:36px}
+.uni-card{background:var(--white);border-radius:var(--r-lg);border:1px solid var(--border);overflow:hidden;transition:all .35s var(--ease)}
+.uni-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--gold)}
+.uni-card-head{padding:20px 22px 14px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:14px}
+.uni-rank{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--navy),var(--teal-dark));display:flex;align-items:center;justify-content:center;color:var(--gold-2);font-weight:700;font-size:1rem;flex-shrink:0}
+.uni-card-head h4{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--navy);margin:0 0 4px;line-height:1.3}
+.uni-card-head p{font-size:.78rem;color:var(--muted);margin:0}
+.uni-card-body{padding:16px 22px}
+.uni-meta-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.uni-meta{display:flex;align-items:center;gap:5px;font-size:.75rem;color:var(--muted);background:var(--cream);padding:4px 10px;border-radius:20px}
+.uni-subjects{margin-bottom:12px}
+.uni-subjects-label{font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy);margin-bottom:7px}
+.uni-subj-pills{display:flex;flex-wrap:wrap;gap:5px}
+.uni-subj-pill{background:var(--gold-pale);color:var(--navy);font-size:.68rem;font-weight:600;padding:3px 10px;border-radius:20px}
+.uni-intake{font-size:.78rem;color:var(--muted);padding-top:10px;border-top:1px solid var(--border)}
+.uni-intake strong{color:var(--navy)}
+.country-stat-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:32px 0}
+.cstat{background:var(--cream);border:1px solid var(--border);border-radius:var(--r-md);padding:16px 20px;text-align:center}
+.cstat-val{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--navy)}
+.cstat-lbl{font-size:.74rem;color:var(--muted);margin-top:3px}
+.country-back{display:inline-flex;align-items:center;gap:7px;color:var(--gold);font-size:.86rem;font-weight:600;cursor:pointer;margin-bottom:18px;background:none;border:none;font-family:'Outfit',sans-serif}
+.country-back:hover{color:var(--gold-2)}
+</style>
+
+<!-- ════════════════════════════════════════
+     PAGE: GERMANY
+════════════════════════════════════════ -->
+<div class="page" id="page-country-germany">
+  <div class="inner-hero">
+    <div class="container">
+      <button class="country-back" onclick="goPage('study')">← Back to Study in Europe</button>
+      <span class="label">🇩🇪 Germany</span>
+      <h1>Study in Germany</h1>
+      <p>Home to over 400 public universities offering tuition-free or near-free education. Germany remains the top choice for Pakistani students seeking world-class engineering, science, and MBA programs.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <span class="btn btn-gold" onclick="goPage('contact')">Book Free Assessment</span>
+        <span class="btn btn-white" onclick="goPage('contact')">Get APS Guidance</span>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="country-stat-bar">
+        <div class="cstat"><div class="cstat-val">€0–350</div><div class="cstat-lbl">Tuition per semester</div></div>
+        <div class="cstat"><div class="cstat-val">400+</div><div class="cstat-lbl">Public universities</div></div>
+        <div class="cstat"><div class="cstat-val">~94,000</div><div class="cstat-lbl">International students</div></div>
+        <div class="cstat"><div class="cstat-val">Summer & Winter</div><div class="cstat-lbl">Intake seasons</div></div>
+      </div>
+      <span class="label">Top Institutions</span>
+      <h2 class="section-title">5 Leading State Universities in Germany</h2>
+      <p class="section-sub">All are publicly funded, regulated by state governments, and offer internationally recognized degrees.</p>
+      <div class="uni-grid">
+
+        <div class="uni-card reveal">
+          <div class="uni-card-head">
+            <div class="uni-rank">01</div>
+            <div><h4>Technical University of Munich (TUM)</h4><p>Munich, Bavaria</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~50,000 students</span>
+              <span class="uni-meta">🌍 Top 50 globally</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Engineering</span><span class="uni-subj-pill">Computer Science</span><span class="uni-subj-pill">Natural Sciences</span><span class="uni-subj-pill">Medicine</span><span class="uni-subj-pill">Business</span><span class="uni-subj-pill">Architecture</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> Winter (Oct) — applications open April–May · Summer (Apr) — applications open Nov–Jan</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d1">
+          <div class="uni-card-head">
+            <div class="uni-rank">02</div>
+            <div><h4>Heidelberg University</h4><p>Heidelberg, Baden-Württemberg</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~31,000 students</span>
+              <span class="uni-meta">📅 Est. 1386</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Medicine</span><span class="uni-subj-pill">Law</span><span class="uni-subj-pill">Humanities</span><span class="uni-subj-pill">Natural Sciences</span><span class="uni-subj-pill">Social Sciences</span><span class="uni-subj-pill">Theology</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> Winter (Oct) — apply by Jul 15 · Summer (Apr) — apply by Jan 15</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d2">
+          <div class="uni-card-head">
+            <div class="uni-rank">03</div>
+            <div><h4>Humboldt University of Berlin</h4><p>Berlin</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~36,000 students</span>
+              <span class="uni-meta">🏛️ State university</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Philosophy</span><span class="uni-subj-pill">Economics</span><span class="uni-subj-pill">Life Sciences</span><span class="uni-subj-pill">Law</span><span class="uni-subj-pill">Education</span><span class="uni-subj-pill">Linguistics</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> Winter (Oct) — apply by May–Jul · Summer (Apr) — apply by Nov–Jan</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal">
+          <div class="uni-card-head">
+            <div class="uni-rank">04</div>
+            <div><h4>RWTH Aachen University</h4><p>Aachen, North Rhine-Westphalia</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~47,000 students</span>
+              <span class="uni-meta">🔧 Engineering elite</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Mechanical Engineering</span><span class="uni-subj-pill">Electrical Engineering</span><span class="uni-subj-pill">Civil Engineering</span><span class="uni-subj-pill">Computer Science</span><span class="uni-subj-pill">Business Engineering</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> Winter (Oct) — apply by May 15 · Limited summer intake for some programs</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d1">
+          <div class="uni-card-head">
+            <div class="uni-rank">05</div>
+            <div><h4>University of Hamburg</h4><p>Hamburg</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~42,000 students</span>
+              <span class="uni-meta">🌊 Port city campus</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Business Administration</span><span class="uni-subj-pill">Law</span><span class="uni-subj-pill">Social Sciences</span><span class="uni-subj-pill">IT & Computer Science</span><span class="uni-subj-pill">Humanities</span><span class="uni-subj-pill">Chemistry</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> Winter (Oct) — apply by Jun 15 · Summer (Apr) — limited programs, apply by Dec 1</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <div class="cta-band"><h2>Ready to Study in Germany?</h2><p>We handle APS certificates, blocked accounts, language requirements, and your full visa application.</p><div class="cta-band-btns"><span class="btn btn-gold" onclick="goPage('contact')">Book Free Consultation</span><a href="https://wa.me/923321434413" class="btn btn-wa" target="_blank">Chat on WhatsApp</a></div></div>
+</div><!-- /page-country-germany -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE: FRANCE
+════════════════════════════════════════ -->
+<div class="page" id="page-country-france">
+  <div class="inner-hero">
+    <div class="container">
+      <button class="country-back" onclick="goPage('study')">← Back to Study in Europe</button>
+      <span class="label">🇫🇷 France</span>
+      <h1>Study in France</h1>
+      <p>France offers some of Europe's most affordable public university education with global prestige. The Eiffel Excellence Scholarship and Campus France programs make it highly accessible for Pakistani students.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <span class="btn btn-gold" onclick="goPage('contact')">Book Free Assessment</span>
+        <span class="btn btn-white" onclick="goPage('contact')">Campus France Guidance</span>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="country-stat-bar">
+        <div class="cstat"><div class="cstat-val">€170–380</div><div class="cstat-lbl">Tuition per year</div></div>
+        <div class="cstat"><div class="cstat-val">3,500+</div><div class="cstat-lbl">Higher ed institutions</div></div>
+        <div class="cstat"><div class="cstat-val">~400,000</div><div class="cstat-lbl">International students</div></div>
+        <div class="cstat"><div class="cstat-val">September</div><div class="cstat-lbl">Main intake month</div></div>
+      </div>
+      <span class="label">Top Institutions</span>
+      <h2 class="section-title">5 Leading State Universities in France</h2>
+      <p class="section-sub">French public universities are funded by the state and charge minimal annual registration fees regulated by the government.</p>
+      <div class="uni-grid">
+
+        <div class="uni-card reveal">
+          <div class="uni-card-head">
+            <div class="uni-rank">01</div>
+            <div><h4>Sorbonne University (Paris)</h4><p>Paris, Île-de-France</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~55,000 students</span>
+              <span class="uni-meta">🌍 Top 100 globally</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Medicine</span><span class="uni-subj-pill">Science & Engineering</span><span class="uni-subj-pill">Arts & Humanities</span><span class="uni-subj-pill">Literature</span><span class="uni-subj-pill">History</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> September/October — Campus France application: Dec–Mar for following year</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d1">
+          <div class="uni-card-head">
+            <div class="uni-rank">02</div>
+            <div><h4>University of Paris-Saclay</h4><p>Saclay, Île-de-France</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~48,000 students</span>
+              <span class="uni-meta">🔬 Research powerhouse</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Physics</span><span class="uni-subj-pill">Mathematics</span><span class="uni-subj-pill">Computer Science</span><span class="uni-subj-pill">Engineering</span><span class="uni-subj-pill">Life Sciences</span><span class="uni-subj-pill">Medicine</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> September — applications via Parcoursup (Bachelor) or direct/e-candidature (Masters) Jan–Apr</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d2">
+          <div class="uni-card-head">
+            <div class="uni-rank">03</div>
+            <div><h4>University of Grenoble Alpes</h4><p>Grenoble, Auvergne-Rhône-Alpes</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~60,000 students</span>
+              <span class="uni-meta">⛷️ Alps university city</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Engineering</span><span class="uni-subj-pill">Management</span><span class="uni-subj-pill">Law</span><span class="uni-subj-pill">Social Sciences</span><span class="uni-subj-pill">Education</span><span class="uni-subj-pill">Environmental Sciences</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> September — Masters applications: Jan–Apr · Bachelor via Campus France: Nov–Mar</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal">
+          <div class="uni-card-head">
+            <div class="uni-rank">04</div>
+            <div><h4>University of Lyon (Université de Lyon)</h4><p>Lyon, Auvergne-Rhône-Alpes</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~150,000 students</span>
+              <span class="uni-meta">🏙️ France's 2nd city</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Business</span><span class="uni-subj-pill">Chemistry</span><span class="uni-subj-pill">Law</span><span class="uni-subj-pill">Architecture</span><span class="uni-subj-pill">Sports Science</span><span class="uni-subj-pill">Political Science</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> September — apply Jan–Apr via Campus France Pakistan or direct e-candidature</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d1">
+          <div class="uni-card-head">
+            <div class="uni-rank">05</div>
+            <div><h4>University of Strasbourg</h4><p>Strasbourg, Grand Est</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~52,000 students</span>
+              <span class="uni-meta">🇪🇺 EU capital proximity</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Law & Political Science</span><span class="uni-subj-pill">Economics</span><span class="uni-subj-pill">Medicine</span><span class="uni-subj-pill">Pharmacy</span><span class="uni-subj-pill">Sciences & Technology</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> September/October — Masters: Feb–May · Bachelor via Campus France: Nov–Feb</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <div class="cta-band"><h2>Ready to Study in France?</h2><p>We guide you through Campus France, visa, and Eiffel scholarship applications step by step.</p><div class="cta-band-btns"><span class="btn btn-gold" onclick="goPage('contact')">Book Free Consultation</span><a href="https://wa.me/923321434413" class="btn btn-wa" target="_blank">Chat on WhatsApp</a></div></div>
+</div><!-- /page-country-france -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE: AUSTRIA
+════════════════════════════════════════ -->
+<div class="page" id="page-country-austria">
+  <div class="inner-hero">
+    <div class="container">
+      <button class="country-back" onclick="goPage('study')">← Back to Study in Europe</button>
+      <span class="label">🇦🇹 Austria</span>
+      <h1>Study in Austria</h1>
+      <p>Austria offers excellent research universities, low annual tuition, and a central European location. With strong programs in engineering, music, science, and arts — it's an underrated gem for Pakistani students.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <span class="btn btn-gold" onclick="goPage('contact')">Book Free Assessment</span>
+        <span class="btn btn-white" onclick="goPage('contact')">Check Eligibility</span>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="country-stat-bar">
+        <div class="cstat"><div class="cstat-val">€726–1,500</div><div class="cstat-lbl">Tuition per year</div></div>
+        <div class="cstat"><div class="cstat-val">22</div><div class="cstat-lbl">Public universities</div></div>
+        <div class="cstat"><div class="cstat-val">~90,000</div><div class="cstat-lbl">International students</div></div>
+        <div class="cstat"><div class="cstat-val">Oct & March</div><div class="cstat-lbl">Intake semesters</div></div>
+      </div>
+      <span class="label">Top Institutions</span>
+      <h2 class="section-title">5 Leading State Universities in Austria</h2>
+      <p class="section-sub">Austrian public universities are governed by the federal state and charge minimal semester fees compared to most Western countries.</p>
+      <div class="uni-grid">
+
+        <div class="uni-card reveal">
+          <div class="uni-card-head">
+            <div class="uni-rank">01</div>
+            <div><h4>University of Vienna</h4><p>Vienna</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~90,000 students</span>
+              <span class="uni-meta">📅 Est. 1365 — oldest</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Law</span><span class="uni-subj-pill">Business & Economics</span><span class="uni-subj-pill">Natural Sciences</span><span class="uni-subj-pill">Humanities</span><span class="uni-subj-pill">Computer Science</span><span class="uni-subj-pill">Philosophy</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> Winter (Oct) — apply Jul–Sep · Summer (Mar) — apply Nov–Jan</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d1">
+          <div class="uni-card-head">
+            <div class="uni-rank">02</div>
+            <div><h4>Vienna University of Technology (TU Wien)</h4><p>Vienna</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~30,000 students</span>
+              <span class="uni-meta">🔩 Technical elite</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Architecture</span><span class="uni-subj-pill">Civil Engineering</span><span class="uni-subj-pill">Electrical Engineering</span><span class="uni-subj-pill">Computer Science</span><span class="uni-subj-pill">Physics</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> Winter (Oct) — applications open Jul 1–Sep 5 · Summer (Mar) — Nov 1–Jan 5</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d2">
+          <div class="uni-card-head">
+            <div class="uni-rank">03</div>
+            <div><h4>University of Graz</h4><p>Graz, Styria</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~32,000 students</span>
+              <span class="uni-meta">🏙️ Austria's 2nd city</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Natural Sciences</span><span class="uni-subj-pill">Social Sciences</span><span class="uni-subj-pill">Law</span><span class="uni-subj-pill">Economics</span><span class="uni-subj-pill">Theology</span><span class="uni-subj-pill">Arts</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> Winter (Oct) — apply Jun–Sep · Summer (Mar) — apply Nov–Feb</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal">
+          <div class="uni-card-head">
+            <div class="uni-rank">04</div>
+            <div><h4>University of Innsbruck</h4><p>Innsbruck, Tyrol</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~28,000 students</span>
+              <span class="uni-meta">⛰️ Alpine city campus</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Law</span><span class="uni-subj-pill">Business</span><span class="uni-subj-pill">Architecture</span><span class="uni-subj-pill">Education</span><span class="uni-subj-pill">Engineering</span><span class="uni-subj-pill">Mathematics</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> Winter (Oct) — apply by Sep 1 · Summer (Mar) — apply by Feb 1</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d1">
+          <div class="uni-card-head">
+            <div class="uni-rank">05</div>
+            <div><h4>Johannes Kepler University Linz</h4><p>Linz, Upper Austria</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~22,000 students</span>
+              <span class="uni-meta">💻 Tech & innovation hub</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Business & Economics</span><span class="uni-subj-pill">Law</span><span class="uni-subj-pill">Social Sciences</span><span class="uni-subj-pill">Natural Sciences</span><span class="uni-subj-pill">Computer Science</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> Winter (Oct) — apply Jul–Sep · Summer (Mar) — apply Nov–Jan</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <div class="cta-band"><h2>Ready to Study in Austria?</h2><p>We handle your full application, German language guidance, and Austrian student visa processing.</p><div class="cta-band-btns"><span class="btn btn-gold" onclick="goPage('contact')">Book Free Consultation</span><a href="https://wa.me/923321434413" class="btn btn-wa" target="_blank">Chat on WhatsApp</a></div></div>
+</div><!-- /page-country-austria -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE: ITALY
+════════════════════════════════════════ -->
+<div class="page" id="page-country-italy">
+  <div class="inner-hero">
+    <div class="container">
+      <button class="country-back" onclick="goPage('study')">← Back to Study in Europe</button>
+      <span class="label">🇮🇹 Italy</span>
+      <h1>Study in Italy</h1>
+      <p>Italy's prestigious public universities offer globally ranked degrees in engineering, design, medicine, and the arts. Income-based tuition reductions make it surprisingly affordable for Pakistani students.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <span class="btn btn-gold" onclick="goPage('contact')">Book Free Assessment</span>
+        <span class="btn btn-white" onclick="goPage('contact')">Learn about DSU Grants</span>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="country-stat-bar">
+        <div class="cstat"><div class="cstat-val">€0–4,000</div><div class="cstat-lbl">Tuition per year (income-based)</div></div>
+        <div class="cstat"><div class="cstat-val">98</div><div class="cstat-lbl">State universities</div></div>
+        <div class="cstat"><div class="cstat-val">~110,000</div><div class="cstat-lbl">International students</div></div>
+        <div class="cstat"><div class="cstat-val">Sep & Feb</div><div class="cstat-lbl">Main intakes</div></div>
+      </div>
+      <span class="label">Top Institutions</span>
+      <h2 class="section-title">5 Leading State Universities in Italy</h2>
+      <p class="section-sub">Italian state universities are publicly funded and use ISEE income assessments to offer significant tuition waivers to international students.</p>
+      <div class="uni-grid">
+
+        <div class="uni-card reveal">
+          <div class="uni-card-head">
+            <div class="uni-rank">01</div>
+            <div><h4>Politecnico di Milano</h4><p>Milan, Lombardy</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~48,000 students</span>
+              <span class="uni-meta">🏆 #1 in Italy (Engineering)</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Architecture</span><span class="uni-subj-pill">Civil Engineering</span><span class="uni-subj-pill">Industrial Design</span><span class="uni-subj-pill">Computer Engineering</span><span class="uni-subj-pill">Management Engineering</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> September — applications open Apr–Jul · February intake for select Masters programs</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d1">
+          <div class="uni-card-head">
+            <div class="uni-rank">02</div>
+            <div><h4>University of Bologna</h4><p>Bologna, Emilia-Romagna</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~87,000 students</span>
+              <span class="uni-meta">📅 Est. 1088 — world's oldest</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Law</span><span class="uni-subj-pill">Medicine</span><span class="uni-subj-pill">Economics</span><span class="uni-subj-pill">Engineering</span><span class="uni-subj-pill">Humanities</span><span class="uni-subj-pill">Agriculture</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> September — applications open Feb–May via Universitaly portal</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d2">
+          <div class="uni-card-head">
+            <div class="uni-rank">03</div>
+            <div><h4>Sapienza University of Rome</h4><p>Rome, Lazio</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~115,000 students</span>
+              <span class="uni-meta">🏛️ Europe's largest university</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Medicine</span><span class="uni-subj-pill">Architecture</span><span class="uni-subj-pill">Physics</span><span class="uni-subj-pill">Pharmacy</span><span class="uni-subj-pill">Political Science</span><span class="uni-subj-pill">Arts</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> October — apply Mar–Jun · February for some postgraduate programs</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal">
+          <div class="uni-card-head">
+            <div class="uni-rank">04</div>
+            <div><h4>University of Padua</h4><p>Padua, Veneto</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~65,000 students</span>
+              <span class="uni-meta">⭐ Top QS ranked in Italy</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Medicine & Surgery</span><span class="uni-subj-pill">Engineering</span><span class="uni-subj-pill">Science</span><span class="uni-subj-pill">Psychology</span><span class="uni-subj-pill">Law</span><span class="uni-subj-pill">Statistics</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> September — apply via Universitaly Feb–Jun · February intake for some Masters</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d1">
+          <div class="uni-card-head">
+            <div class="uni-rank">05</div>
+            <div><h4>University of Turin</h4><p>Turin, Piedmont</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~70,000 students</span>
+              <span class="uni-meta">🚗 Italy's automotive capital</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Law</span><span class="uni-subj-pill">Economics & Management</span><span class="uni-subj-pill">Natural Sciences</span><span class="uni-subj-pill">Pharmacy</span><span class="uni-subj-pill">Agriculture</span><span class="uni-subj-pill">Veterinary</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> October — applications via Universitaly portal open Feb–May · Feb intake for select programs</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <div class="cta-band"><h2>Ready to Study in Italy?</h2><p>We guide you through Universitaly applications, DSU income grants, and Italian student visa processing.</p><div class="cta-band-btns"><span class="btn btn-gold" onclick="goPage('contact')">Book Free Consultation</span><a href="https://wa.me/923321434413" class="btn btn-wa" target="_blank">Chat on WhatsApp</a></div></div>
+</div><!-- /page-country-italy -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE: POLAND
+════════════════════════════════════════ -->
+<div class="page" id="page-country-poland">
+  <div class="inner-hero">
+    <div class="container">
+      <button class="country-back" onclick="goPage('study')">← Back to Study in Europe</button>
+      <span class="label">🇵🇱 Poland</span>
+      <h1>Study in Poland</h1>
+      <p>Poland has emerged as one of Europe's fastest-growing study destinations — with affordable English-medium programs, low living costs, and a welcoming environment for Pakistani students.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <span class="btn btn-gold" onclick="goPage('contact')">Book Free Assessment</span>
+        <span class="btn btn-white" onclick="goPage('contact')">Check Scholarship Options</span>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="country-stat-bar">
+        <div class="cstat"><div class="cstat-val">€2,000–5,000</div><div class="cstat-lbl">Tuition per year</div></div>
+        <div class="cstat"><div class="cstat-val">130+</div><div class="cstat-lbl">Public universities</div></div>
+        <div class="cstat"><div class="cstat-val">~90,000</div><div class="cstat-lbl">International students</div></div>
+        <div class="cstat"><div class="cstat-val">Oct & Feb/Mar</div><div class="cstat-lbl">Intake semesters</div></div>
+      </div>
+      <span class="label">Top Institutions</span>
+      <h2 class="section-title">5 Leading State Universities in Poland</h2>
+      <p class="section-sub">Polish public universities are co-funded by the state. International students pay modest tuition for English-language programs — far below UK or US rates.</p>
+      <div class="uni-grid">
+
+        <div class="uni-card reveal">
+          <div class="uni-card-head">
+            <div class="uni-rank">01</div>
+            <div><h4>University of Warsaw</h4><p>Warsaw, Masovian Voivodeship</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~45,000 students</span>
+              <span class="uni-meta">🏆 #1 in Poland</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Law</span><span class="uni-subj-pill">Economics</span><span class="uni-subj-pill">Computer Science</span><span class="uni-subj-pill">Political Science</span><span class="uni-subj-pill">Journalism</span><span class="uni-subj-pill">Mathematics</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> October — apply Jun–Jul · February — apply Nov–Dec for select programs</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d1">
+          <div class="uni-card-head">
+            <div class="uni-rank">02</div>
+            <div><h4>Jagiellonian University</h4><p>Kraków, Lesser Poland</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~41,000 students</span>
+              <span class="uni-meta">📅 Est. 1364 — oldest in Poland</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Medicine</span><span class="uni-subj-pill">Law</span><span class="uni-subj-pill">Management</span><span class="uni-subj-pill">International Studies</span><span class="uni-subj-pill">Philosophy</span><span class="uni-subj-pill">Biotechnology</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> October — applications open Mar–Jul · February for some Masters programs</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d2">
+          <div class="uni-card-head">
+            <div class="uni-rank">03</div>
+            <div><h4>Warsaw University of Technology</h4><p>Warsaw, Masovian Voivodeship</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~36,000 students</span>
+              <span class="uni-meta">⚙️ Poland's top tech uni</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Civil Engineering</span><span class="uni-subj-pill">Electrical Engineering</span><span class="uni-subj-pill">Computer Science</span><span class="uni-subj-pill">Mechatronics</span><span class="uni-subj-pill">Architecture</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> October — apply Apr–Jul · February — apply Oct–Nov for some programs</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal">
+          <div class="uni-card-head">
+            <div class="uni-rank">04</div>
+            <div><h4>AGH University of Science and Technology</h4><p>Kraków, Lesser Poland</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~30,000 students</span>
+              <span class="uni-meta">🔬 STEM-focused</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Mining & Geology</span><span class="uni-subj-pill">Computer Science</span><span class="uni-subj-pill">Electrical Engineering</span><span class="uni-subj-pill">Physics</span><span class="uni-subj-pill">Management</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> October (main) — apply May–Jul · February — apply Oct–Nov</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d1">
+          <div class="uni-card-head">
+            <div class="uni-rank">05</div>
+            <div><h4>University of Wrocław</h4><p>Wrocław, Lower Silesia</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~27,000 students</span>
+              <span class="uni-meta">🏙️ City of 100 bridges</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Mathematics</span><span class="uni-subj-pill">Physics</span><span class="uni-subj-pill">Chemistry</span><span class="uni-subj-pill">Law</span><span class="uni-subj-pill">Social Sciences</span><span class="uni-subj-pill">Biotechnology</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> October — apply May–Aug · February — limited programs, apply Oct–Dec</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <div class="cta-band"><h2>Ready to Study in Poland?</h2><p>We handle university applications, document preparation, and your Polish student visa end-to-end.</p><div class="cta-band-btns"><span class="btn btn-gold" onclick="goPage('contact')">Book Free Consultation</span><a href="https://wa.me/923321434413" class="btn btn-wa" target="_blank">Chat on WhatsApp</a></div></div>
+</div><!-- /page-country-poland -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE: FINLAND
+════════════════════════════════════════ -->
+<div class="page" id="page-country-finland">
+  <div class="inner-hero">
+    <div class="container">
+      <button class="country-back" onclick="goPage('study')">← Back to Study in Europe</button>
+      <span class="label">🇫🇮 Finland</span>
+      <h1>Study in Finland</h1>
+      <p>Finland's innovation-driven universities are world-renowned for technology, design, and education quality. Generous scholarships for international students make it a realistic and rewarding destination.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <span class="btn btn-gold" onclick="goPage('contact')">Book Free Assessment</span>
+        <span class="btn btn-white" onclick="goPage('contact')">Explore Scholarships</span>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="country-stat-bar">
+        <div class="cstat"><div class="cstat-val">€8,000–18,000</div><div class="cstat-lbl">Tuition/yr (scholarships available)</div></div>
+        <div class="cstat"><div class="cstat-val">13</div><div class="cstat-lbl">State universities</div></div>
+        <div class="cstat"><div class="cstat-val">~23,000</div><div class="cstat-lbl">International students</div></div>
+        <div class="cstat"><div class="cstat-val">September</div><div class="cstat-lbl">Main intake</div></div>
+      </div>
+      <span class="label">Top Institutions</span>
+      <h2 class="section-title">5 Leading State Universities in Finland</h2>
+      <p class="section-sub">Finnish universities are state-funded research institutions. Many offer 50–100% tuition scholarships to high-performing international applicants.</p>
+      <div class="uni-grid">
+
+        <div class="uni-card reveal">
+          <div class="uni-card-head">
+            <div class="uni-rank">01</div>
+            <div><h4>University of Helsinki</h4><p>Helsinki, Uusimaa</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~36,000 students</span>
+              <span class="uni-meta">🏆 Top 100 globally</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Medicine</span><span class="uni-subj-pill">Law</span><span class="uni-subj-pill">Science & Technology</span><span class="uni-subj-pill">Social Sciences</span><span class="uni-subj-pill">Humanities</span><span class="uni-subj-pill">Pharmacy</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> September — application period: Dec–Jan · Scholarship decisions: Feb–Mar</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d1">
+          <div class="uni-card-head">
+            <div class="uni-rank">02</div>
+            <div><h4>Aalto University</h4><p>Espoo, Uusimaa</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~17,000 students</span>
+              <span class="uni-meta">🎨 Design & Tech leader</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Engineering & Technology</span><span class="uni-subj-pill">Business</span><span class="uni-subj-pill">Architecture</span><span class="uni-subj-pill">Arts & Design</span><span class="uni-subj-pill">Chemical Technology</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> September — apply Dec–Jan · 50% tuition waivers available for top applicants</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d2">
+          <div class="uni-card-head">
+            <div class="uni-rank">03</div>
+            <div><h4>University of Tampere (Tampere University)</h4><p>Tampere, Pirkanmaa</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~22,000 students</span>
+              <span class="uni-meta">💡 Research & innovation</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Medicine & Health</span><span class="uni-subj-pill">Engineering</span><span class="uni-subj-pill">Social Sciences</span><span class="uni-subj-pill">Information Technology</span><span class="uni-subj-pill">Business</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> September — application window: Dec–Jan · Scholarship notification: Mar–Apr</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal">
+          <div class="uni-card-head">
+            <div class="uni-rank">04</div>
+            <div><h4>University of Oulu</h4><p>Oulu, North Ostrobothnia</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~16,000 students</span>
+              <span class="uni-meta">📡 Nordic tech hub</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Information Technology</span><span class="uni-subj-pill">Engineering</span><span class="uni-subj-pill">Medicine</span><span class="uni-subj-pill">Natural Sciences</span><span class="uni-subj-pill">Architecture</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> September — apply Dec–Jan · Scholarship decisions: Feb–Mar · ~50% waiver possible</div>
+          </div>
+        </div>
+
+        <div class="uni-card reveal d1">
+          <div class="uni-card-head">
+            <div class="uni-rank">05</div>
+            <div><h4>University of Turku</h4><p>Turku, Southwest Finland</p></div>
+          </div>
+          <div class="uni-card-body">
+            <div class="uni-meta-row">
+              <span class="uni-meta">🎓 ~20,000 students</span>
+              <span class="uni-meta">🌊 Finland's oldest city</span>
+            </div>
+            <div class="uni-subjects">
+              <p class="uni-subjects-label">Subjects Offered</p>
+              <div class="uni-subj-pills"><span class="uni-subj-pill">Medicine</span><span class="uni-subj-pill">Law</span><span class="uni-subj-pill">Education</span><span class="uni-subj-pill">Social Sciences</span><span class="uni-subj-pill">Natural Sciences</span><span class="uni-subj-pill">Maritime Sciences</span></div>
+            </div>
+            <div class="uni-intake"><strong>Intake:</strong> September — apply Nov–Jan · Finnish scholarship program: up to 100% waiver for merit students</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <div class="cta-band"><h2>Ready to Study in Finland?</h2><p>We identify the best scholarship programs for your profile and handle your complete Finnish student visa application.</p><div class="cta-band-btns"><span class="btn btn-gold" onclick="goPage('contact')">Book Free Consultation</span><a href="https://wa.me/923321434413" class="btn btn-wa" target="_blank">Chat on WhatsApp</a></div></div>
+</div><!-- /page-country-finland -->
+
+
+<!-- WHATSAPP FLOAT -->
+<a class="wa-fab" href="https://wa.me/923321434413?text=Hello!%20I%20am%20interested%20in%20your%20consultancy%20services." target="_blank">
+  <div class="wa-tip">Chat with us now!</div>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- FAQ on home (hidden helper) -->
+
+<script>
+// ══ PAGE ROUTING ══
+const pages = ['home','study','visa','about','contact','blog','country-germany','country-france','country-austria','country-italy','country-poland','country-finland'];
+function goPage(id){
+  pages.forEach(p=>{
+    document.getElementById('page-'+p).classList.toggle('active',p===id);
+    const nl=document.getElementById('nl-'+p);
+    if(nl) nl.classList.toggle('active',p===id);
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+  // nav style
+  const nav=document.getElementById('nav');
+  if(id==='home'){nav.classList.add('hero-nav')}
+  else{nav.classList.remove('hero-nav');nav.classList.add('solid')}
+  // re-run reveal
+  setTimeout(initReveal,100);
+}
+
+// ══ NAV SCROLL ══
+const navEl=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  const onHome=document.getElementById('page-home').classList.contains('active');
+  if(onHome){
+    navEl.classList.toggle('solid',window.scrollY>60);
+    navEl.classList.toggle('hero-nav',window.scrollY<=60);
+  } else {
+    navEl.classList.add('solid');
+    navEl.classList.remove('hero-nav');
+  }
+});
+
+// ══ MOBILE MENU ══
+function openMenu(){document.getElementById('mobileMenu').classList.add('open');document.body.style.overflow='hidden'}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow=''}
+
+// ══ REVEAL ══
+function initReveal(){
+  const els=document.querySelectorAll('.page.active .reveal');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}});
+  },{threshold:.12});
+  els.forEach(el=>obs.observe(el));
+}
+initReveal();
+
+// ══ TESTIMONIALS ══
+let tIdx=0;
+const tt=document.getElementById('ttrack');
+const tdots=document.querySelectorAll('.testi-dot');
+function tUpdate(){
+  const w=tt.children[0].offsetWidth+24;
+  tt.style.transform=`translateX(-${tIdx*w}px)`;
+  tdots.forEach((d,i)=>d.classList.toggle('on',i===tIdx));
+}
+function tSlide(dir){tIdx=Math.max(0,Math.min(tt.children.length-1,tIdx+dir));tUpdate()}
+function tGo(i){tIdx=i;tUpdate()}
+let ta=setInterval(()=>tSlide(tIdx<tt.children.length-1?1:-tIdx),4800);
+tt.addEventListener('mouseenter',()=>clearInterval(ta));
+tt.addEventListener('mouseleave',()=>{ta=setInterval(()=>tSlide(tIdx<tt.children.length-1?1:-tIdx),4800)});
+
+// ══ FORM ══
+function submitForm(btn){
+  btn.textContent='✅ Booked! We\'ll contact you within 2 hours.';
+  btn.style.background='linear-gradient(135deg,#2e7d52,#3da866)';
+  btn.style.color='white';
+  btn.disabled=true;
+}
+
+// ══ COUNTER ══
+function animCount(el,target){
+  let s=0,d=2000;
+  const go=ts=>{
+    if(!s)s=ts;
+    const p=Math.min((ts-s)/d,1);
+    const e=1-Math.pow(1-p,3);
+    el.textContent=Math.floor(e*target);
+    if(p<1)requestAnimationFrame(go);
+  };
+  requestAnimationFrame(go);
+}
+// observe trust bar numbers
+const tNums=document.querySelectorAll('.trust-item .num');
+const cObs=new IntersectionObserver(entries=>{
+  if(entries[0].isIntersecting){
+    tNums[0]&&animCount({set textContent(v){tNums[0].textContent=v+'+'}},500);
+    tNums[1]&&animCount({set textContent(v){tNums[1].textContent=v+'%'}},98);
+    cObs.disconnect();
+  }
+},{threshold:.5});
+if(tNums[0])cObs.observe(tNums[0]);
+
+/* ── DOCUMENT TAB SWITCHER ── */
+function switchDocTab(btn, panelId) {
+  document.querySelectorAll('.doc-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.doc-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  const panel = document.getElementById(panelId);
+  if (panel) panel.classList.add('active');
+}
+</script>
+</body>
+</html>
